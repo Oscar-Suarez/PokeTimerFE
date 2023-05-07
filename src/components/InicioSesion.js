@@ -1,10 +1,17 @@
 import React, { useState, useContext } from "react";
 import { MyContext } from "../MyContext";
+import  {Navigate}  from 'react-router-dom';
+
+
+
+
+
+
 
 function InicioSesion() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-    const{setSesionIniciada} = useContext(MyContext);
+    const{setSesionIniciada, sesionIniciada} = useContext(MyContext);
 
     const handleUsernameChange = (event) => {
         setUsername(event.target.value);
@@ -16,13 +23,17 @@ function InicioSesion() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Aquí podrías hacer la lógica para enviar los datos a un servidor, autenticar al usuario, etc.
-        console.log({
-            username,
-            password,
-        });
+
+        // console.log({
+        //     username,
+        //     password,
+        // });
         setSesionIniciada(true)
     };
+
+    if (sesionIniciada) {
+        return <Navigate to="/Perfil" />;
+      }
 
     return (
         <form onSubmit={handleSubmit}>

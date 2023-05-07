@@ -1,4 +1,4 @@
-import "../styles/AppBar.css";
+import styles from '../styles/AppBar.module.css';
 import bl1 from "../assets/img/bl1.png";
 import {Link} from "react-router-dom";
 import { useContext } from "react";
@@ -10,16 +10,16 @@ function AppBar() {
     return(
 
 
-        <nav className="navbar">
+        <nav className={styles.navbar}>
             {sesionIniciada ? (
-            <div className="nav-container">
-                <div className='nav-left'>
+            <div className={styles.navContainer}>
+                <div className={styles.navLeft}>
                     <Link to={"/Perfil"}>
-                    <img alt='PokeTimer' className='nav-img' src={bl1}></img>
+                    <img alt='PokeTimer' className={styles.navImg} src={bl1}></img>
                     </Link>
 
                 </div>
-                <div className="nav-links">
+                <div className={styles.navLinks}>
                     <Link to={"/Perfil"} >
                     <h3>Perfil/Timer</h3>
                     </Link>
@@ -32,13 +32,13 @@ function AppBar() {
                 </div>
             </div>
             ):(
-            <div className="nav-container">
-                <div className='nav-left'>
+            <div className={styles.navContainer}>
+                <div className={styles.navLeft}>
                     <Link to={"/"}>
-                    <img alt='PokeTimer' className='nav-img' src={bl1}></img>
+                    <img alt='PokeTimer' className={styles.navImg} src={bl1}></img>
                     </Link>
                 </div>
-                <div className="nav-links">
+                <div className={styles.navLinks}>
                     <Link to={"/InicioSesion"} >
                     <h3>Iniciar Sesión</h3>
                     </Link>

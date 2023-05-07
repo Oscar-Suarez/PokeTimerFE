@@ -6,23 +6,23 @@
     background-color: #7c0707 ;
     display: flex;
     flex: row;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+
 }
 
-.nav-container {
+.navContainer {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.nav-left {
+.navLeft {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 50px;
+    margin-left: 20px;
 }
 
-.nav-img {
+.navImg {
     margin-right: 20px;
     margin-bottom: 15px;
     display: flex;
@@ -31,7 +31,7 @@
     border-radius: 20%;
 }
 
-.nav-links {
+.navLinks {
     display: flex;
     flex-direction: row;
     gap: 60px;
@@ -39,15 +39,15 @@
     right: 200px;
 }
 
-.nav-links a {
-    color: rgba(1, 0, 43, 0.814);
+.navLinks a {
+    color: rgba(0, 0, 0, 0.814);
     font-size: 1.5rem;
     text-decoration: none;
     padding: 10px;
     transition: .8s;
 }
 
-.nav-links a:hover {
-    color: #9c9494;
+.navLinks a:hover {
+    color: #805151;
     border-radius: 5px;
 }

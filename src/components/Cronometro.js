@@ -54,7 +54,6 @@ function Cronometro() {
             if (pokePrincipal) {
                 pokePrincipal.nivel = nivel;
                 pokePrincipal.tiempo = tiempo;
-                console.log(pokePrincipal.nivel);
             }
             //Funcionalidades para aumentar tiempo y nivel para cada pokémon seleccionado como principal; además de aumentar el tiempo total y el tiempo local del cronómetro.
             intervalo = setInterval(() => {
@@ -62,13 +61,13 @@ function Cronometro() {
                 setTiempoTotal((tiempoTotal) => tiempoTotal + 10000);
                 setTiempoLocal((tiempoLocal) => tiempoLocal + 10000);
                 const xpNivelActual = xpParaSubirNivel[nivel];
+
                 if (pokePrincipal.tiempo >= xpNivelActual) {
                     setNivel((nivel) => nivel + 1);
                     if (pokePrincipal.nivel === 10) {
+                        setPokeball((pokeball) => pokeball + 99);
+                    } else if ((pokePrincipal.nivel % 20 === 0 && pokePrincipal.nivel !== 0) || pokePrincipal.nivel === 50) {
                         setPokeball((pokeball) => pokeball + 1);
-                    } else if (pokePrincipal.nivel % 20 === 0 && pokePrincipal.nivel !== 0 && pokePrincipal.nivel === 50) {
-                        setPokeball((pokeball) => pokeball + 1);
-
                     }
                 }
 
@@ -83,7 +82,7 @@ function Cronometro() {
                 }
 
                 // Bucle necesario para evolucionar el Pokémon cada cierto nivel
-                if (pokePrincipal.nivel === 45 && pokePrincipal.evoluciones && !evolucionEjecutada && pokePrincipal.segundaEvo?.name?.toUpperCase() !== pokePrincipal.name) {
+                if (pokePrincipal.nivel === 1 && pokePrincipal.evoluciones && !evolucionEjecutada && pokePrincipal.segundaEvo?.name?.toUpperCase() !== pokePrincipal.name) {
 
                     //Esta variable se declara para saber si el pokémon tiene 1 o 2 evoluciones, se intercambia la url dependiendo de la cantidad de evoluciones que tenga y también en caso de que no tenga evoluciones
                     let link = ``
