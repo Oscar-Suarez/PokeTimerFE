@@ -1,9 +1,12 @@
 .contPr{
-    background-color: #7c0707;
+    background-color: #cb1616;
     padding: 50px;
     margin: 30px 200px;
     border-radius: 20px;
 }
+
+
+
 
 .contCir{
     display: flex;
@@ -19,7 +22,7 @@
     display: inline-block;
     margin-right: 10px;
 }
-.intcir{
+.intcirc{
     width: 50px;
     height: 50px;
     margin-bottom: 20px;
@@ -67,11 +70,12 @@
     background-color: rgb(150, 147, 147);
     padding: 10px 10px;
     border-radius: 8px 8px 8px 50px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.5) ;
 }
 
 .contTer{
-    background-color: rgba(7, 224, 240, 0.51);
-    border-radius: 10px;
+    background-color: rgba(0, 174, 255, 0.768);
+    border-radius: 8px 8px 8px 50px;
     margin: 20px ;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5) ;
     border-radius: 20px;
@@ -83,6 +87,6 @@
 .p{
     font-size: 22px;
     padding: 7px;
-    text-shadow: 7px 7px 8px rgba(0, 0, 0, 0.668);
+    text-shadow: 7px 7px 10px rgba(0, 0, 0, 0.668);
 }
 

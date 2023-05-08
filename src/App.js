@@ -12,6 +12,7 @@ import InicioSesion from './components/InicioSesion';
 import Registro from './components/Registro';
 import './App.css';
 
+
 function App() {
   return (
     <MyContextProvider>
@@ -21,7 +22,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path='/InicioSesion' element={[<InicioSesion key={"IniciarSesion" } />, ]} />
-            <Route path='/Registro' element={[<Registro key={"IniciarSesion" } />, ]} />
+            <Route path='/Registro' element={[<Registro key={"Registro" }  />, ]} />
             <Route path='/Iniciales' element={[<Iniciales key={"iniciales" } />, ]} />
             <Route path='/Perfil' element={[<PokePrincipal key={"pp"}/>, <Cronometro key={"crono"}/>]}/>
             <Route path='/PokeSalvaje' element={[<PokeSalvaje key={"PokeSalvaje"}/>, ]}/>

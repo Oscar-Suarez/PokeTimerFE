@@ -177,7 +177,6 @@ function Cronometro() {
                 </section>
             ) : (
                 <div>
-                    <h1>¡Bienvenid@ al PokeTimer!</h1>
                 </div>
             )}
         </div>

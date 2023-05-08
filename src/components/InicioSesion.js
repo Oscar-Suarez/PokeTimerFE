@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { MyContext } from "../MyContext";
 import  {Navigate}  from 'react-router-dom';
-
+import styles from '../styles/InicioSesion.module.css'
+import Darkrai from '../assets/img/Darkrai.png'
 
 
 
@@ -36,19 +37,26 @@ function InicioSesion() {
       }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <label>
-                Nombre de usuario:
-                <input type="text" value={username} onChange={handleUsernameChange} required />
+        <div className={styles.contBody}>
+        <div className={styles.contInicioSesion}>
+        <img src={Darkrai} alt="Darkrai" className={styles.img}/>
+        <div className={styles.contForm}>
+            <h2>¡Bienvenid@!</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
+        <label>
+                <input type="text" value={username} placeholder="Nombre de usuario" onChange={handleUsernameChange} required className={styles.input}/>
             </label>
             <br />
             <label>
-                Contraseña:
-                <input type="password" value={password} onChange={handlePasswordChange} required />
+
+                <input type="password" value={password} placeholder="Contraseña" onChange={handlePasswordChange} required className={styles.input}/>
             </label>
-            <br />
-            <button type="submit">Iniciar sesión</button>
+            <div className={styles.contBtn} ><button type="submit" className={styles.btn}>Iniciar sesión</button></div>
+
         </form>
+        </div>
+        </div>
+        </div>
     );
 }
 

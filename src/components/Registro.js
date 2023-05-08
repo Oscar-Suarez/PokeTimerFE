@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import styles from '../styles/Registro.module.css'
+import Arca from '../assets/img/arca.png'
 
 function Registro() {
     const [name, setName] = useState("");
@@ -56,25 +58,28 @@ function Registro() {
     };
 
     return (
-        <form onSubmit={handleRegistration}>
+        <div className={styles.contBody}>
+        <div className={styles.contRegistro}>
+        <div className={styles.contForm}>
+        <form onSubmit={handleRegistration} >
+        <h2 className={styles.h2}>¡Bienvenid@!</h2>
+            <div className={styles.form}>
             <label>
-                Nombre:
-                <input type="text" value={name} onChange={handleNameChange} required />
+                <input type="text" value={name} placeholder="Nombre" onChange={handleNameChange} required className={styles.input} />
             </label>
             <br />
             <label>
-                Nombre de usuario:
-                <input type="text" value={username} onChange={handleUsernameChange} required />
+                <input type="text" value={username} placeholder="Nombre de usuario" onChange={handleUsernameChange} required className={styles.input} />
             </label>
             <br />
             <label>
-                Fecha de nacimiento:
-                <input type="date" value={birthdate} onChange={handleBirthdateChange} required />
+                <input type="date" value={birthdate} onChange={handleBirthdateChange} required  className={styles.input}/>
             </label>
             <br />
+            </div>
+            <div className={styles.form}>
             <label>
-                Género:
-                <select value={gender} onChange={handleGenderChange} required>
+                <select value={gender} onChange={handleGenderChange} required className={styles.noShad}>
                     <option value="male">Hombre</option>
                     <option value="female">Mujer</option>
                     <option value="nonbinary">No binario</option>
@@ -83,17 +88,22 @@ function Registro() {
             </label>
             <br />
             <label>
-                Correo electrónico:
-                <input type="email" value={email} onChange={handleEmailChange} required />
+                <input type="email" value={email} onChange={handleEmailChange} required placeholder="Correo electrónico" className={styles.input}/>
             </label>
             <br />
             <label>
-                Contraseña:
-                <input type="password" value={password} onChange={handlePasswordChange} required />
+                <input type="password" value={password} onChange={handlePasswordChange} required placeholder="Contraseña" className={styles.input}/>
             </label>
             <br />
-            <button type="submit">Registrarse</button>
+            </div>
+            <div className={styles.contBtn} >
+            <button type="submit" className={styles.btn}>Registrarse</button>
+            </div>
         </form>
+        </div>
+        <img src={Arca} alt="Darkrai" className={styles.img}/>
+        </div>
+        </div>
     );
 }
 
