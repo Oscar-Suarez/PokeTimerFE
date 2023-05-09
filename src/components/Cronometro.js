@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 import { MyContext } from "../MyContext";
 import axios from 'axios';
+import styles from '../styles/Cronometro.module.css'
 
 //Función para guardar la experiencia(tiempo) que necesita cada nivel pasa acceder a él.
 const xpParaSubirNivel = [0];
@@ -147,7 +148,7 @@ function Cronometro() {
     //Bucle necesario para cambiar de pantalla una vez se llega al nivel 100
     if (nivel === 100) {
         return (
-            <>
+            <div>
                 <section>
                     <p>Nivel: {nivel}</p>
                     <p>Tiempo acumulado: {formatoTiempo(tiempoTotal)}</p>
@@ -156,13 +157,13 @@ function Cronometro() {
                 <h1>Felicidades, alcanzaste el máximo nivel.</h1>
                 <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
                 <h1>{formatoTiempo(pokePrincipal.tiempo)}</h1>
-            </>
+            </div>
         );
     }
 
 
     return (
-        <div>
+        <div className={styles.cont}>
             {seleccionado ? (
                 <section>
                     <h1>{formatoTiempo(tiempoLocal)}</h1>

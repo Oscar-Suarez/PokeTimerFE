@@ -1,3 +1,13 @@
+.bkgd{    
+  background-image: url('../assets/img/Lab.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  padding: 10px;
+}
+
 .iniciales {
     display: flex;
     justify-content: center;
@@ -118,6 +128,6 @@ background: linear-gradient(400deg, #11998e, #6be585);
   
 
   .pokeCont{
-    margin: 100px;
+    margin: 80px;
     font-size: 20px;
   }

@@ -2,7 +2,7 @@ import styles from '../styles/Home.module.css'
 
 function Home() {
   return (
-    < >
+    <div className={styles.background}>
 
       <div className={styles.contPr}>
         <h1 className={styles.h1}>¡Bienvenid@ al PokeTimer!</h1>
@@ -25,7 +25,7 @@ function Home() {
         </div>
       </div>
 
-    </ >
+    </div >
   );
 }
 

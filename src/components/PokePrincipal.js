@@ -1,7 +1,8 @@
 import { useContext } from "react";
 import { MyContext } from "../MyContext";
 import { Link } from 'react-router-dom';
-import styles from '../styles/Seleccion.module.css'
+import styles from '../styles/SeleccionPrincipal.module.css'
+
 
 
 function PokePrincipal() {
@@ -33,8 +34,10 @@ function PokePrincipal() {
 
 
   return (
-    <div>
+    <div className={styles.cont}>
+      
       {pokePrincipal.name ? (
+        <div>
         <section className="infoPoke">
           <h1>{pokePrincipal.name}</h1>
           {pokePrincipal.sprites && <img src={pokePrincipal.sprites.other["official-artwork"].front_default} alt="Poke Principal" />}
@@ -52,8 +55,9 @@ function PokePrincipal() {
             <button>Cambiar Pokémon.</button>
           </Link>
         </section>
+        </div>
       ) : (
-        <div>
+        <div className={styles.bkgd}>
                               <h1 className={styles.h1}>¡Bienvenid@ al PokeTimer!</h1>
           <Link to="/Iniciales" ><button className={styles.btn}>Elegir Pokémon inicial.</button></Link>
         </div>

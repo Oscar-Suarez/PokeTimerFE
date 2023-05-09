@@ -78,7 +78,7 @@ function Iniciales() {
 
 
     return (
-        <div>
+        <div className={styles.bkgd}>
             <div className={styles.iniciales}>
                 {pokemonData.map((pokemon, index) => (
                     <div key={index} className={`${styles.info} ${styles[`pokemon-${index}`]}`}>
