@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
-
 import { MyContext } from "../MyContext";
 import styles from '../styles/Iniciales.module.css'
 
@@ -57,38 +56,40 @@ function Iniciales() {
         setPokePrincipal(pokemon)
     };
 
-
-
     //Para modificar el Doom al momento de elegir el pokemon
     if (pokeSalvaje.length > 0) {
         return (
             <div>
                 {pokeSalvaje.map((pokemon, index) => (
-                    <div key={index}>
+                    <div key={index} className={`${styles[`background-${pokemon.id}`]}`}>
+                        <div className={styles.pokeCont}>
                         <h2>¡Elegiste a {pokemon.name} como tu inicial!</h2>
                         <img
                             src={pokemon.sprites.other["official-artwork"].front_default}
                             alt={pokemon.name}
                         />
                         <h1>Dex nacional: #{pokemon.id}</h1>
+                        </div>
                     </div>
                 ))}
             </div>
         );
     }
 
+
     return (
         <div>
             <div className={styles.iniciales}>
                 {pokemonData.map((pokemon, index) => (
-                    <div key={index} className={styles.info}>
+                    <div key={index} className={`${styles.info} ${styles[`pokemon-${index}`]}`}>
                         <h1>{pokemon.name}</h1>
                         <img
+                            className={styles.poke}
                             src={pokemon.sprites.other["official-artwork"].front_default}
                             alt={pokemon.name}
                         />
-                        <div >
-                            <h1>Dex nacional: #{pokemon.id}</h1>
+                        <div>
+                            <h2>Dex nacional: #{pokemon.id}</h2>
                             <button onClick={() => elegirPoke(pokemon)}>¡{pokemon.name}, yo te elijo!</button>
                         </div>
                     </div>
@@ -96,6 +97,7 @@ function Iniciales() {
             </div>
         </div>
     );
+
 }
 
 export default Iniciales;

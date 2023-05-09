@@ -22,7 +22,6 @@
     border-radius: 20px;
     margin-bottom: 100px;
     box-shadow: 20px 35px 100px rgba(0, 0, 0, 0.5);
-
 }
 
 .form {
@@ -75,13 +74,14 @@
     border-radius: 80px;
     cursor: pointer;
     box-shadow: 20px 35px 100px rgba(0, 0, 0, 0.5);
-    color: #2a2323;
-    text-shadow: 1px 1px 6px rgba(0, 0, 0, 1);
+    color: #ffffff;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+    font-weight: bold;
 }
 
 .btn:hover{
   border-color: rgba(0, 0, 0, 0.468);
-  color: #ffffff;
+  color: #2a2323;
 }
 
 .h2{
