@@ -70,7 +70,7 @@
     background: #dd1818; 
     background: -webkit-linear-gradient(200deg,  #dd1818 , #333333); 
     background: linear-gradient(200deg, #dd1818, #333333); 
-    padding: 10px;
+    padding: 40px;
     height: 100vh;
   }
 
@@ -95,7 +95,7 @@ background: linear-gradient(400deg, #FFFFFF, #6DD5FA, #2980B9);
     background: #2980B9;  
 background: -webkit-linear-gradient(400deg, #FFFFFF, #6DD5FA, #2980B9);  
 background: linear-gradient(400deg, #FFFFFF, #6DD5FA, #2980B9); 
-    padding: 10px;
+padding: 40px;
     height: 100vh;
   }
 
@@ -122,7 +122,7 @@ background: linear-gradient(400deg, #11998e, #6be585);
       background: #6be585;  
       background: -webkit-linear-gradient(200deg, #11998e, #6be585);  
       background: linear-gradient(400deg, #11998e, #6be585); 
-    padding: 10px;
+      padding: 40px;
     height: 100vh;
   }
   

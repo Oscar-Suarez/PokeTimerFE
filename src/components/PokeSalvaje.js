@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import { MyContext } from "../MyContext";
+import styles from '../styles/PokeSalvaje.module.css'
 
 
 function PokeSalvaje() {
@@ -91,7 +92,7 @@ function PokeSalvaje() {
               </button>
             </div>
           ) : (
-            <div className="iniciales">
+            <div className={styles.btn}>
               <button onClick={random}>¡Un Pokémon salvaje apareció!</button>
             </div>
           )

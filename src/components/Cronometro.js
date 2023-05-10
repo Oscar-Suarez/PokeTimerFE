@@ -2,6 +2,9 @@ import { useState, useEffect, useCallback, useContext } from "react";
 import { MyContext } from "../MyContext";
 import axios from 'axios';
 import styles from '../styles/Cronometro.module.css'
+import color from '../styles/SeleccionPrincipal.module.css'
+import { Link } from 'react-router-dom';
+
 
 //Función para guardar la experiencia(tiempo) que necesita cada nivel pasa acceder a él.
 const xpParaSubirNivel = [0];
@@ -87,11 +90,11 @@ function Cronometro() {
 
                     //Esta variable se declara para saber si el pokémon tiene 1 o 2 evoluciones, se intercambia la url dependiendo de la cantidad de evoluciones que tenga y también en caso de que no tenga evoluciones
                     let link = ``
-                    if(pokePrincipal.evoluciones && pokePrincipal.evoluciones?.name?.toUpperCase() !== pokePrincipal.name){
+                    if (pokePrincipal.evoluciones && pokePrincipal.evoluciones?.name?.toUpperCase() !== pokePrincipal.name) {
                         link = `https://pokeapi.co/api/v2/pokemon/${pokePrincipal.evoluciones?.name}`;
-                    } else if (pokePrincipal.evoluciones && pokePrincipal.evoluciones?.name?.toUpperCase() === pokePrincipal.name && pokePrincipal.segundaEvo){
+                    } else if (pokePrincipal.evoluciones && pokePrincipal.evoluciones?.name?.toUpperCase() === pokePrincipal.name && pokePrincipal.segundaEvo) {
                         link = `https://pokeapi.co/api/v2/pokemon/${pokePrincipal.segundaEvo?.name}`
-                    } else{
+                    } else {
                         return console.log("Es la última evo");
                     }
                     axios.get(`${link}`)
@@ -157,6 +160,9 @@ function Cronometro() {
                 <h1>Felicidades, alcanzaste el máximo nivel.</h1>
                 <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
                 <h1>{formatoTiempo(pokePrincipal.tiempo)}</h1>
+                <Link to="/Colección">
+                        <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
+                    </Link>
             </div>
         );
     }
@@ -166,15 +172,17 @@ function Cronometro() {
         <div className={styles.cont}>
             {seleccionado ? (
                 <section>
-                    <h1>{formatoTiempo(tiempoLocal)}</h1>
-                    <button onClick={iniciar}>Iniciar/Continuar.</button>
-                    <button onClick={pausa}>Pausar.</button>
-                    <button onClick={reiniciar}>Reiniciar.</button>
+                    <h1 className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.tiempo}`}>{formatoTiempo(tiempoLocal)}</h1>
+                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={iniciar}>Iniciar/Continuar.</button>
+                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={pausa}>Pausar.</button>
+                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={reiniciar}>Reiniciar.</button>
                     <p>Nivel: {pokePrincipal.nivel}</p>
                     <p>Tienes: {pokeball} Pokeballs.</p>
                     <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
-
                     <h1>{formatoTiempo(pokePrincipal.tiempo)}</h1>
+                    <Link to="/Colección">
+                        <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
+                    </Link>
                 </section>
             ) : (
                 <div>
