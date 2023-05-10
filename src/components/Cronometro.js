@@ -161,8 +161,8 @@ function Cronometro() {
                 <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
                 <h1>{formatoTiempo(pokePrincipal.tiempo)}</h1>
                 <Link to="/Colección">
-                        <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
-                    </Link>
+                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
+                </Link>
             </div>
         );
     }
@@ -171,18 +171,20 @@ function Cronometro() {
     return (
         <div className={styles.cont}>
             {seleccionado ? (
-                <section>
+                <section >
                     <h1 className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.tiempo}`}>{formatoTiempo(tiempoLocal)}</h1>
                     <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={iniciar}>Iniciar/Continuar.</button>
                     <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={pausa}>Pausar.</button>
                     <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={reiniciar}>Reiniciar.</button>
-                    <p>Nivel: {pokePrincipal.nivel}</p>
-                    <p>Tienes: {pokeball} Pokeballs.</p>
-                    <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
-                    <h1>{formatoTiempo(pokePrincipal.tiempo)}</h1>
+                    <div className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.cont2}`}>
+                    <p className={styles.nivel}>Nivel: {pokePrincipal.nivel}</p>
+                    <p className={styles.pokeball}>Tienes: {pokeball} Pokeballs.</p>
+                    <h1 >Tiempo que has usado a <p>{pokePrincipal.name} :<h1 className={`${styles.tiempo2}`}>{formatoTiempo(pokePrincipal.tiempo)}</h1></p> </h1>
                     <Link to="/Colección">
                         <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
                     </Link>
+                    </div>
+
                 </section>
             ) : (
                 <div>

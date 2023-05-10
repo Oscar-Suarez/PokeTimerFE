@@ -19,6 +19,21 @@
     width: 400px;
 }
 
+
+
+.nivel{
+    font-size: 30px;
+}
+.pokeball{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.cont2{
+    border-radius: 20px;
+    text-shadow: -5px 6px 9px rgba(0, 0, 0, 0.668);
+}
+
 :root {
     --type-normalcr: #3a3a33a0;
     --type-firecr: #b15d2165;
@@ -26,7 +41,7 @@
     --type-grasscr: #3a781b7a;
     --type-electriccr: #8a731574;
     --type-icecr: #308b8b7c;
-    --type-fightingcr: #40100e6c;
+    --type-fightingcr: #360d0b9c;
     --type-poisoncr: #6322636e;
     --type-groundcr: #E0C0680c;
     --type-flyingcr: #5855635f;
@@ -35,7 +50,7 @@
     --type-rockcr: #62551a72;
     --type-ghostcr: #2d145589;
     --type-darkcr: #09090987;
-    --type-dragoncr: #32147782;
+    --type-dragoncr: #1c0c4082;
     --type-steelcr: #0000001b;
     --type-fairycr: #a5525b7d;
 
