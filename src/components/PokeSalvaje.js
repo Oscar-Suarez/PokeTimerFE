@@ -2,6 +2,9 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import { MyContext } from "../MyContext";
 import styles from '../styles/PokeSalvaje.module.css'
+import wild from '../assets/img/wild.png'
+import color from '../styles/SeleccionPrincipal.module.css'
+
 
 
 function PokeSalvaje() {
@@ -18,7 +21,7 @@ function PokeSalvaje() {
       try {
         const response = await axios.get('https://pokeapi.co/api/v2/pokemon?limit=386');
         const data = await Promise.all(response.data.results.map(pokemon => axios.get(pokemon.url)));
-        const listaPokemon = await Promise.all(data.map(async response => {
+        const listaPokemon = await Promise.all(data.map(async (response) => {
 
           //En estas constantes se guarda la petición para saber si tiene evoluciones el pokémon.
           const speciesRespuesta = await axios.get(response.data.species.url);
@@ -39,7 +42,7 @@ function PokeSalvaje() {
             evoluciones: cadenaEvo,
             segundaEvo: cadenaEvoDos,
             ultimaEvo : estaEvolucionado,
-            soloUnaEvo : unaEvo
+            soloUnaEvo : unaEvo,
           };
         }));
 
@@ -74,33 +77,35 @@ function PokeSalvaje() {
   }
 
   return (
-    <div>
+    <div className={styles.contGnrl}>
+      <div className={styles.imgCont}>
+        <img src={wild} className={styles.img} alt="wild"/>
+      </div>
       {pokemonData.length > 0 ? (
         pokeball > 0 ? (
           pokeElegido ? (
-            <div>
-              <h2>¡Atrapaste a: {pokeElegido.name}!</h2>
-              <img
-                src={
-                  pokeElegido.sprites.other["official-artwork"].front_default
-                }
-                alt={pokeElegido.name}
-              />
-              <h1>Dex nacional: #{pokeElegido.id}</h1>
-              <button onClick={usarOtraPokeball}>
-                ¡Un Pokémon salvaje apareció!
-              </button>
+            <div className={styles.contSalvaje}>
+              <h2 className={`${color[`color-${pokeElegido.types[0].type.name}`]} ${styles.atrapaste} `}>¡Atrapaste a: {pokeElegido.name}!</h2>
+              <img src={pokeElegido.sprites.other["official-artwork"].front_default} alt={pokeElegido.name} className={styles.pokeSalvaje}/>
+              <div className={styles.contSalvaje2}>
+              <h1 className={styles.aparecio2}>¡Un Pokémon salvaje apareció!</h1>
+              <h1 className={styles.lanzar2}>¡Lanzar Pokeball!</h1>
+              <button className={styles.btn2} onClick={usarOtraPokeball}></button>
+              <h1 className={styles.disp}>Pokeball disponibles: {pokeball}</h1>
+            </div>
             </div>
           ) : (
-            <div className={styles.btn}>
-              <button onClick={random}>¡Un Pokémon salvaje apareció!</button>
+            <div>
+              <h1 className={styles.aparecio}>¡Un Pokémon salvaje apareció!</h1>
+              <h1 className={styles.lanzar}>¡Lanzar Pokeball!</h1>
+              <button onClick={random} className={styles.btn} ></button>
             </div>
           )
         ) : (
-          <h1>No tienes pokeball disponibles</h1>
+          <h1 className={styles.verificacion}>No tienes pokeball disponibles</h1>
         )
       ) : (
-        <p>Verificando las pokeball disponibles...</p>
+        <p className={styles.verificacion}>Verificando las pokeball disponibles...</p>
       )}
     </div>
   );

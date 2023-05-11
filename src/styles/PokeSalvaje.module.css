@@ -1,3 +1,110 @@
+.contGnrl{
+    position: relative; 
+    display: inline-block; 
+}
+
+.verificacion{
+    position: absolute; 
+    top: 25%;
+    left: 75%; 
+    transform: translate(-50%, -50%); 
+    width: 500px;
+}
 .btn{
-    padding-top: 50px;
+    position: absolute; 
+    top: 85%;
+    left: 82%; 
+    transform: translate(-50%, -50%); 
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    background-image: url('../assets/img/ball.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.lanzar{
+    position: absolute; 
+    top: 70%;
+    left: 68%; 
+    font-size: 20px;
+}
+
+.aparecio{
+    position: absolute; 
+    top: 75%;
+    left: 35%; 
+    transform: translate(-50%, -50%); 
+}
+.img{
+    margin-top: -30px;
+    width: 700px;
+}
+
+.contSalvaje{
+    position: absolute; 
+    top: 20%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+}
+
+
+/*DESPUES DE QUE SALGA EL POKÉMON SALVAJE*/
+.contSalvaje2{
+    position: absolute; 
+    top: 120%;
+    left: 20%; 
+}
+
+.btn2{
+    position: absolute; 
+    transform: translate(-50%, -50%); 
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: none;
+    background-image: url('../assets/img/ball.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 130px 420px;
+}
+
+.lanzar2{
+    position: absolute; 
+    font-size: 20px;
+    margin: 40px 370px;
+}
+
+.aparecio2{
+    position: absolute; 
+    transform: translate(-50%, -50%); 
+    width: 500px;
+    margin: 100px 90px;
+}
+
+.atrapaste{
+    position: absolute; 
+    top: 40%;
+    margin-left: 200px;
+    transform: translate(-50%, -50%); 
+}
+
+.pokeSalvaje{
+    width: 310px;
+    margin-left: 350px;
+    margin-top: 100px;
+}
+
+.disp{
+    position: absolute; 
+    transform: translate(-50%, -50%); 
+    margin-left: 420px ;
+    margin-top: 190px;
+    font-size: 15px;
+    width: 200px;
 }

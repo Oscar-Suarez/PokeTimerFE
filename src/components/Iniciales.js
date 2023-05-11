@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import { MyContext } from "../MyContext";
 import styles from '../styles/Iniciales.module.css'
+import color from '../styles/Cronometro.module.css'
 
 
 function Iniciales() {
@@ -20,7 +21,7 @@ function Iniciales() {
             try {
                 const iniciales = ['4', '258', '810'];
                 const data = await Promise.all(iniciales.map(name => axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)));
-                const pokemonList = await Promise.all(data.map(async response => {
+                const pokemonList = await Promise.all(data.map(async (response) => {
                     const speciesRespuesta = await axios.get(response.data.species.url);
                     const evolutionChainRespuesta = await axios.get(speciesRespuesta.data.evolution_chain.url);
                     let cadenaEvo = null;
@@ -35,7 +36,7 @@ function Iniciales() {
                         nivel: 0,
                         tiempo: 0,
                         evoluciones: cadenaEvo,
-                        segundaEvo: cadenaEvoDos
+                        segundaEvo: cadenaEvoDos,
                     };
                 }));
 
@@ -63,7 +64,7 @@ function Iniciales() {
                 {pokeSalvaje.map((pokemon, index) => (
                     <div key={index} className={`${styles[`background-${pokemon.id}`]}`}>
                         <div className={styles.pokeCont}>
-                        <h2>¡Elegiste a {pokemon.name} como tu inicial!</h2>
+                        <h2 className={color}>¡Elegiste a {pokemon.name} como tu inicial!</h2>
                         <img
                             src={pokemon.sprites.other["official-artwork"].front_default}
                             alt={pokemon.name}

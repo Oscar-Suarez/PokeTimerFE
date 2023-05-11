@@ -6,6 +6,8 @@ import Cronometro from "./Cronometro";
 
 
 
+
+
 function PokePrincipal() {
   const { pokePrincipal } = useContext(MyContext);
 
@@ -39,12 +41,12 @@ function PokePrincipal() {
       {pokePrincipal.name ? (
         <div className={`${styles[`background-${pokePrincipal.types[0].type.name}`]} ${styles.background}`}>
           <div className={styles.contPoke}>
-            <section className="infoPoke">
+            <section>
               <div >
                 {pokePrincipal.sprites && <img src={pokePrincipal.sprites.other["official-artwork"].front_default} alt="Poke Principal" />}
               </div>
               <div>
-                <h1 className={styles.name}>{pokePrincipal.name}</h1>
+                <h1 className={`${styles[`color-${pokePrincipal.types[0].type.name}`]} ${styles.name} `}>{pokePrincipal.name}</h1>
                 {pokePrincipal.types.map((type, index) => (
                   <span key={index} className={`${styles[type.type.name]}`}>
                     {typesTranslations[type.type.name]}

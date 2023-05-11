@@ -6,6 +6,7 @@ import color from '../styles/SeleccionPrincipal.module.css'
 import { Link } from 'react-router-dom';
 
 
+
 //Función para guardar la experiencia(tiempo) que necesita cada nivel pasa acceder a él.
 const xpParaSubirNivel = [0];
 for (let i = 1; i < 100; i++) {
@@ -65,7 +66,7 @@ function Cronometro() {
                 setTiempoTotal((tiempoTotal) => tiempoTotal + 10000);
                 setTiempoLocal((tiempoLocal) => tiempoLocal + 10000);
                 const xpNivelActual = xpParaSubirNivel[nivel];
-
+                console.log(tiempoTotal);
                 if (pokePrincipal.tiempo >= xpNivelActual) {
                     setNivel((nivel) => nivel + 1);
                     if (pokePrincipal.nivel === 10) {
@@ -98,7 +99,7 @@ function Cronometro() {
                         return console.log("Es la última evo");
                     }
                     axios.get(`${link}`)
-                        .then(response => {
+                        .then((response) => {
                             // Devuelve el nuevo estado que se quiere asignar a evolucionando
                             return {
                                 ...response.data,
@@ -151,11 +152,10 @@ function Cronometro() {
     //Bucle necesario para cambiar de pantalla una vez se llega al nivel 100
     if (nivel === 100) {
         return (
-            <div>
-                <section>
-                    <p>Nivel: {nivel}</p>
-                    <p>Tiempo acumulado: {formatoTiempo(tiempoTotal)}</p>
-                    <p>Tienes: {pokeball} Pokeballs.</p>
+            <div className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.cont2} ${styles.contlvl100}`} >
+                <section >
+                <p className={styles.nivel}>Nivel: {pokePrincipal.nivel}</p>
+                    <p className={styles.pokeball}>Tienes: {pokeball} Pokeballs.</p>
                 </section>
                 <h1>Felicidades, alcanzaste el máximo nivel.</h1>
                 <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>

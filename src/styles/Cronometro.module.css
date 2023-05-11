@@ -33,6 +33,11 @@
     border-radius: 20px;
     text-shadow: -5px 6px 9px rgba(0, 0, 0, 0.668);
 }
+.contlvl100{
+    margin-top: 200px;
+    margin-right: 10px;
+    padding: 5px 20px;
+}
 
 :root {
     --type-normalcr: #3a3a33a0;
@@ -53,7 +58,6 @@
     --type-dragoncr: #1c0c4082;
     --type-steelcr: #0000001b;
     --type-fairycr: #a5525b7d;
-
     --color-normalcr: #A8A878;
     --color-firecr: #f08030;
     --color-watercr: #6890F0;
