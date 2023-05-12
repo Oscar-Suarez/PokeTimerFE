@@ -4,6 +4,12 @@
     background-repeat: no-repeat;
     background-position: center;
     width: 98.7vw;
-    height: 111vh;
+    height: 120vh;
     padding: 10px;
+}
+
+@media (max-width: 550px){
+    .background{
+        width: 95.1vw;
+    }  
 }

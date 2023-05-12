@@ -58,24 +58,26 @@
     --type-dragoncr: #1c0c4082;
     --type-steelcr: #0000001b;
     --type-fairycr: #a5525b7d;
+
+    
     --color-normalcr: #A8A878;
     --color-firecr: #f08030;
-    --color-watercr: #6890F0;
-    --color-grasscr: #78C850;
-    --color-electriccr: #F8D030;
-    --color-icecr: #98D8D8;
-    --color-fightingcr: #C03028;
-    --color-poisoncr: #A040A0;
+    --color-watercr: #bccbef;
+    --color-grasscr: #b1da9d;
+    --color-electriccr: #462402;
+    --color-icecr: #d6eded;
+    --color-fightingcr: #f51003;
+    --color-poisoncr: #d408d4;
     --color-groundcr: #E0C068;
     --color-flyingcr: #A890F0;
-    --color-psychiccr: #F85888;
-    --color-bugcr: #A8B820;
-    --color-rockcr: #B8A038;
-    --color-ghostcr: #705898;
-    --color-darkcr: #705848;
-    --color-dragoncr: #7038F8;
-    --color-steelcr: #B8B8D0;
-    --color-fairycr: #F0B6BC;
+    --color-psychiccr: #edb9e4;
+    --color-bugcr: #e1e4c7;
+    --color-rockcr: #d2ccaf;
+    --color-ghostcr: #c4bad3;
+    --color-darkcr: #EABE3F;
+    --color-dragoncr: #c3abfc;
+    --color-steelcr: #ffffff;
+    --color-fairycr: rgb(249, 211, 211);
 }
 
 .normal {

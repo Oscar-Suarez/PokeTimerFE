@@ -1,8 +1,10 @@
 .container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Muestra 4 Pokémon por fila */
+    grid-template-columns: repeat(4, 1fr); 
     grid-gap: 20px;
-    padding: 40px 170px;
+    padding: 150px 170px;
+    background-color: white;
+    margin-top: 0px;
   }
   
   .liCole {
@@ -44,20 +46,23 @@
 }
 
 .colorTipos{
-  font-size: 19px;
+  font-size: 20px;
   text-shadow: 0px 10px 12px rgba(0, 0, 0, 0.668);  
   color: black;
+  padding-right: 0px;
+  padding-left: 0px;
 }
 
 .menu{
-  margin-top: 50px;
-  margin-left: 1000px;
-  margin: 50px 0px 0px 1000px;
+  position: absolute;
+
+  padding: 20px;
+  margin: 0px 0px 0px 1200px;
 }
 
 .ordenar{
   font-size: 20px;
-  color: #8B0000;;;
+  color: #8B0000;
 }
 
 .opciones{
@@ -65,3 +70,13 @@
   color: #ffffff;
   font-weight: bold;
 }
+
+.dark{
+  color: white;
+}
+
+.steel{
+  color: white;
+}
+
+

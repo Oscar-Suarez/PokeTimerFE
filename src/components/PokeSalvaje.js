@@ -3,7 +3,7 @@ import axios from 'axios';
 import { MyContext } from "../MyContext";
 import styles from '../styles/PokeSalvaje.module.css'
 import wild from '../assets/img/wild.png'
-import color from '../styles/SeleccionPrincipal.module.css'
+import color from '../styles/Cronometro.module.css'
 
 
 
@@ -85,7 +85,7 @@ function PokeSalvaje() {
         pokeball > 0 ? (
           pokeElegido ? (
             <div className={styles.contSalvaje}>
-              <h2 className={`${color[`color-${pokeElegido.types[0].type.name}`]} ${styles.atrapaste} `}>¡Atrapaste a: {pokeElegido.name}!</h2>
+              <h2 className={`${color[`${pokeElegido.types[0].type.name}`]} ${styles.atrapaste} `}>¡Atrapaste a: {pokeElegido.name}!</h2>
               <img src={pokeElegido.sprites.other["official-artwork"].front_default} alt={pokeElegido.name} className={styles.pokeSalvaje}/>
               <div className={styles.contSalvaje2}>
               <h1 className={styles.aparecio2}>¡Un Pokémon salvaje apareció!</h1>
@@ -95,10 +95,11 @@ function PokeSalvaje() {
             </div>
             </div>
           ) : (
-            <div>
+            <div >
               <h1 className={styles.aparecio}>¡Un Pokémon salvaje apareció!</h1>
               <h1 className={styles.lanzar}>¡Lanzar Pokeball!</h1>
               <button onClick={random} className={styles.btn} ></button>
+              <h1 className={styles.dispAnt}>Pokeball disponibles: {pokeball}</h1>
             </div>
           )
         ) : (

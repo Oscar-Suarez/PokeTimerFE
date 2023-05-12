@@ -77,11 +77,11 @@ function Registro() {
                             </label>
                             <br />
                             <label>
-                                <input type="text" value={username} placeholder="Nombre de usuario" onChange={handleUsernameChange} required className={styles.input} />
+                                <input type="text" value={username} placeholder="Usuario" onChange={handleUsernameChange} required className={styles.input} />
                             </label>
                             <br />
                             <label>
-                                <input type="date" value={birthdate} onChange={handleBirthdateChange} required className={styles.input} />
+                                <input type="date" value={birthdate} onChange={handleBirthdateChange} required className={`${styles.input} ${styles.fecha}`} />
                             </label>
                             <br />
                         </div>
@@ -109,7 +109,7 @@ function Registro() {
                         </div>
                     </form>
                 </div>
-                <img src={Arca} alt="Darkrai" className={styles.img} />
+                <img src={Arca} alt="Arca" className={styles.img} />
             </div>
         </div>
     );

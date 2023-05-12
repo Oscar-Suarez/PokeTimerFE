@@ -130,3 +130,58 @@ background: linear-gradient(400deg, #11998e, #6be585);
   .pokeCont{
     font-size: 20px;
   }
+
+
+
+  /*RESPONSIVIDAD CELULAR*/
+
+  @media (max-width: 767px) {
+
+    .bkgd{    
+
+      width: 95.1vw;
+
+    }
+    .iniciales {
+      flex-direction: column;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0);
+      border-radius: 10px;
+      width: 210px;
+      font-size: 10px;
+      
+    }
+  
+    .poke {
+      width: 70px;
+      height: 70px;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      
+    }
+    .info{
+      margin-bottom: 20px;
+    }
+    .pokemon-0 button,
+    .pokemon-1 button,
+    .pokemon-2 button {
+      width: 140px;
+      height: 50px;
+    }
+
+
+  .imgElegido{
+    width: 300px;
+    margin-left: 40px;
+
+  }
+
+  .background-258, .background-810, .background-4{
+    height: 800px;
+  }
+
+  .pokeCont{
+    margin-top: 60px;
+  }
+  }

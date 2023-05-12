@@ -94,33 +94,33 @@ function Coleccion() {
 
   return (
     <>
-      <div className={styles.menu}>
+
+     <div className={styles.menu} key={10}>
         <h1 className={styles.ordenar}>Ordenar por:</h1>
-        <select value={orden} onChange={handleChangeOrden} className={styles.opciones}>
+        <select value={orden} onChange={handleChangeOrden} className={styles.opciones} key={0}>
           <option value="ultimoAgregado" key={1}>Último agregado</option>
           <option value="id" key={2}>ID</option>
           <option value="tipo" key={3}>Tipo</option>
           <option value="alfabetico" key={4}>Alfabéticamente</option>
         </select>
       </div>
-
       <div className={`${styles.container}`}>
         {pokeSalvajeLocal.map((coleccion, index) => (
-          <div>
-            <li key={index} className={`${color[`background-${coleccion.types[0].type.name}`]} ${styles.liCole}`}>
+          <div >
+            <li key={index} className={`${color[`background-${coleccion.types[0].type.name}`]} ${styles.liCole} `}>
               <p className={`${color[`color-${coleccion.types[0].type.name}`]} ${styles.nameCole} `}>{coleccion.name.toUpperCase()}{" "}</p>
               <img src={coleccion.sprites.front_default} alt="" key={index} className={styles.imgCole} />
-              <p className={styles.colorGeneral}> PokeDex: #{coleccion.id}</p>
-              <p className={styles.colorGeneral}>
-                Tipo(s):&nbsp;
+              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}> PokeDex: #{coleccion.id}</p>
+              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}>
+                Tipo(s):
                 {coleccion.types.map((type, index) => (
-                  <span key={index} className={styles.colorTipos}>
+                  <span key={index} className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorTipos}`}>
                     {typesTranslations[type.type.name]}
-                    {index < coleccion.types.length - 1 ? " / " : ""}
+                    {index < coleccion.types.length - 1 ? " /" : ""}
                   </span>
                 ))}
               </p>
-              <p className={styles.colorGeneral}>nivel: {coleccion.nivel}</p>
+              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}>nivel: {coleccion.nivel}</p>
               <Link to="/Perfil">
                 <button onClick={() => seleccionar(coleccion)} className={`${color[`${coleccion.types[0].type.name}`]} ${styles.btnCole}`}>
                   Elegir como pokémon principal.

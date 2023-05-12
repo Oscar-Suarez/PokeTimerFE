@@ -57,7 +57,7 @@
     line-height: 20px;
 }
 
-.btn{
+.btn {
     background-color: #00000000;
     width: 100px;
     height: 50px;
@@ -66,7 +66,34 @@
     box-shadow: 20px 35px 100px rgba(0, 0, 0, 0.5);
 }
 
-.btn:hover{
-  border-color: rgba(0, 0, 0, 0.468);
+.btn:hover {
+    border-color: rgba(0, 0, 0, 0.468);
 
+}
+
+
+
+
+
+/* RESPONSIVIDAD CELULAR */
+@media (max-width: 1000px) {
+
+    .contInicioSesion {
+        flex-direction: column;
+    }
+
+    .contForm {
+        padding: 30px;
+    }
+
+    .img {
+        width: 300px;
+        margin-bottom: 10px;
+        margin-top: 50px;
+    }
+
+    .form {
+        margin: 20px;
+        font-size: 16px;
+    }
 }

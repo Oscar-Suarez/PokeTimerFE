@@ -2,7 +2,7 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios';
 import { MyContext } from "../MyContext";
 import styles from '../styles/Iniciales.module.css'
-import color from '../styles/Cronometro.module.css'
+
 
 
 function Iniciales() {
@@ -60,15 +60,12 @@ function Iniciales() {
     //Para modificar el Doom al momento de elegir el pokemon
     if (pokeSalvaje.length > 0) {
         return (
-            <div>
+            <div >
                 {pokeSalvaje.map((pokemon, index) => (
-                    <div key={index} className={`${styles[`background-${pokemon.id}`]}`}>
+                    <div key={index} className={`${styles[`background-${pokemon.id}`]}`} >
                         <div className={styles.pokeCont}>
-                        <h2 className={color}>¡Elegiste a {pokemon.name} como tu inicial!</h2>
-                        <img
-                            src={pokemon.sprites.other["official-artwork"].front_default}
-                            alt={pokemon.name}
-                        />
+                        <h2 className={styles.texto}>¡Elegiste a {pokemon.name} como tu inicial!</h2>
+                        <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} className={styles.imgElegido}/>
                         <h1>Dex nacional: #{pokemon.id}</h1>
                         </div>
                     </div>
