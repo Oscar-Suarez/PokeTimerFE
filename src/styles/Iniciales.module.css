@@ -3,7 +3,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  width: 100vw;
+  width: 98.7vw;
   height: 100vh;
   padding: 10px;
 }
@@ -30,7 +30,6 @@
   .poke {
     width: 100px;
     height: 100px;
-    margin-right: 20px;
     margin-bottom: 20px;
   }
   
@@ -135,16 +134,25 @@ background: linear-gradient(400deg, #11998e, #6be585);
 
   /*RESPONSIVIDAD CELULAR*/
 
-  @media (max-width: 767px) {
+
+  @media (max-width: 1000px) {
+
+    .iniciales {
+      margin-top: 300px;
+      font-size: 15px;
+    }
+  
+  }
+  @media (max-width: 700px) {
 
     .bkgd{    
 
-      width: 95.1vw;
+      width: 97.3vw;
 
     }
     .iniciales {
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 90px;
       padding: 10px;
       background-color: rgba(0, 0, 0, 0);
       border-radius: 10px;

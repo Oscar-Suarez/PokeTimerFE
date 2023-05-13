@@ -30,7 +30,6 @@
     margin-top: 370px;
 }
 
-
 .btn:hover {
     background: linear-gradient(15deg, #1F1C18 20%, #ffffff 45%, #f00000 80%);
     background-size: 200%;
@@ -45,6 +44,8 @@
       background-position: 45%;
     }
   }
+
+
     /*RESPONSIVIDAD CELULAR*/
   @media (max-width: 550px) {
     .bkgd {
@@ -74,69 +75,140 @@
                                               /*POKEMON PRINCIPAL*/
 
 
-.contCron {
-  margin-top: -200px;
+.cont {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
-.imgPP{
-  margin-left: 30px;
+.contCron{
+  margin-bottom: 200px;
 }
+.background {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 50px;
+  box-shadow: 50px 50px 70px rgba(0, 0, 0, 0.5);
+  padding: 40px 180px 0px 180px;
+  margin: 30px 40px 60px 40px ;
+}
+
 .name{
   font-size: 40px;
   font-weight: bold;
   -webkit-text-stroke: .4px #000000; 
-
 }
 
-.tipoPP{
+.tipoPP {
   padding: 4px 8px;
   border-radius: 100vmax;
   font-size: 25px;
   margin-left: 10px;
 }
 
-.background{
-  border-radius: 50px;
-  box-shadow: 50px 50px 70px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  padding: 20px;
-  margin: 40px 250px;
+.imgPP {
+  width: 400px;
+  margin-top: -200px;
 }
 
+
+
+/*NIVEL 100*/
+
+
+.background100 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 50px;
+  box-shadow: 50px 50px 70px rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px 90px;
+}
+
+.cont100{
+  align-items: center;
+  flex-direction: column;
+}
+.imgPP100 {
+  width: 400px;
+}
+
+
+
+
+
+/*RESPONSIVIDAD CELULARES*/
+
+
+@media (max-width: 1300px){
+
+  .imgPP{
+    position: absolute;
+    width: 250px;
+    margin-left: 10%;
+    margin-top: 0%;
+  }
+
+  .name{
+    font-size: 50px;
+    margin-left: -40%;
+  }
+
+  .contTipos{
+    margin-left: -50%;
+  }
+  .tipoPP{
+    padding: 1px 6px;
+    font-size: 20px;
+    margin-left: 10px;
+  }
+  .background100 {
+    padding: 20px;
+  }
+  
+  .cont100{
+    align-items: center;
+    flex-direction: column;
+  }
+  .imgPP100 {
+    width: 200px;
+  }
+  
+
+}
 @media (max-width: 700px) {
 
   .cont{
-    width: 800px;
-    margin-left: -200px ;
     
+    width: -500px;
+    height: 1000px;
 
   }
-  .contPoke {
-    width: 100px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
+
 
   .imgPP{
-    margin-left: 170px;
-    margin-top: -200px;
+    margin-left: -20%;
+    margin-top: 0%;
     width: 200px;
   }
   .contInfo{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 45%;
+    margin-right: 40%;
   }
   .name{
     font-size: 30px;
     text-align: center;
     margin-left: 165px;
   }
-
   .contTipos{
     margin-left: 150px;
     text-align: center;
@@ -146,7 +218,26 @@
     font-size: 17px;
     margin-left: 10px;
   }
+  .background100 {
+
+
+    flex-direction: column;
+    border-radius: 50px;
+    box-shadow: 50px 50px 70px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5px 20px;
+  }
   
+  .cont100{
+    align-items: center;
+    flex-direction: column;
+  }
+  .imgPP100 {
+    width: 200px;
+  }
 
 }
                                           /*COLOR DE FONDO*/
