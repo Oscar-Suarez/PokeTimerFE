@@ -10,7 +10,7 @@ import Coleccion from './components/Coleccion';
 import InicioSesion from './components/InicioSesion';
 import Registro from './components/Registro';
 import './App.css';
-import styles from './styles/Background.module.css'
+
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             <Route path='/Registro' element={[<Registro key={"Registro"} />,]} />
             <Route path='/Iniciales' element={[<Iniciales key={"iniciales"} />,]} />
             <Route path='/Perfil' element={
-              <div style={{ display: 'flex' }} className={styles.background}>
+              <div >
                 <PokePrincipal key={"pp"} />
               </div>
             } />

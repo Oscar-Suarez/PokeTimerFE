@@ -12,9 +12,7 @@
 }
 .btn{
     position: absolute; 
-    top: 85%;
-    left: 82%; 
-    transform: translate(-50%, -50%); 
+    transform: translate(230%, -180%); 
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -35,9 +33,8 @@
 
 .aparecio{
     position: absolute; 
-    top: 75%;
-    left: 35%; 
-    transform: translate(-50%, -50%); 
+    left: 40%;
+    transform: translate(-60%, -250%); 
 }
 .img{
     margin-top: -30px;
@@ -47,9 +44,17 @@
 .contSalvaje{
     position: absolute; 
     top: 20%;
-    left: 50%; 
-    transform: translate(-50%, -50%); 
+    transform: translate(0%, -50%); 
 }
+
+.dispAnt{
+    position: absolute; 
+    transform: translate(235%, -350%); 
+    font-size: 15px;
+    width: 200px;
+}
+
+
 
 
 /*DESPUES DE QUE SALGA EL POKÉMON SALVAJE*/
@@ -61,7 +66,7 @@
 
 .btn2{
     position: absolute; 
-    transform: translate(-50%, -50%); 
+    transform: translate(480%, 120%); 
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -71,7 +76,6 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    margin: 130px 420px;
 }
 
 .lanzar2{
@@ -82,16 +86,20 @@
 
 .aparecio2{
     position: absolute; 
-    transform: translate(-50%, -50%); 
+    transform: translate(-30%, 80%); 
     width: 500px;
-    margin: 100px 90px;
+}
+
+.disp{
+    position: absolute; 
+    transform: translate(155%, 1050%); 
+    font-size: 15px;
+    width: 200px;
 }
 
 .atrapaste{
     position: absolute; 
-    top: 40%;
-    margin-left: 170px;
-    transform: translate(-50%, -50%); 
+    transform: translate(0%, 400%); 
     font-weight: bold;
     border-radius: 10px;
     padding: 5px;
@@ -106,21 +114,92 @@
     margin-top: 100px;
 }
 
+
+
+
+
+
+
+
+
+
+@media(max-width: 700px){
+
+    .contSalvaje{
+        transform: translate(0%, -50%);
+    margin: 0px;
+    }
+    
+    .contGnrl{
+        margin-top: 50px;
+    }
+    .img{
+        margin-top: 200px;
+        width: 400px;
+    }
+
+    .verificacion{
+        position: absolute; 
+        top: 40%;
+        left: 60%; 
+    }
+    .btn{
+        position: absolute; 
+        transform: translate(130%, -123%); 
+        width: 70px;
+        height: 70px;
+    }
+
+    .lanzar{
+
+        top: 80%;
+        left: 66%; 
+        font-size: 13px;
+    }
+    .aparecio{
+        transform: translate(-60%, -680%); 
+        font-size: 14px;
+    }
+    .dispAnt{
+        position: absolute; 
+        transform: translate(80%, -160%); 
+        width: 100px;
+    }
+
+
+    /*DESPUES DE QUE SALGA EL POKÉMON SALVAJE*/
+
+.btn2{
+    position: absolute; 
+    transform: translate(550%, 202%); 
+    width: 70px;
+    height: 70px;
+}
+
+.lanzar2{
+    position: absolute; 
+    font-size: 15px;
+    transform: translate(20%, 209%); 
+}
+
+.aparecio2{
+    position: absolute; 
+    transform: translate(-2%, 600%); 
+    font-size: 18px;
+}
+
 .disp{
     position: absolute; 
-    transform: translate(-50%, -50%); 
-    margin-left: 420px ;
-    margin-top: 190px;
+    transform: translate(50%, 1000%); 
     font-size: 15px;
-    width: 200px;
+
+}
+.atrapaste{
+    transform: translate(70%, 260%); 
 }
 
-.dispAnt{
-    position: absolute; 
-    transform: translate(-50%, -50%); 
-    margin-left: 570px;
-    margin-top: -40px;
-    font-size: 15px;
-    width: 200px;
+.pokeSalvaje{
+    width: 250px;
+    transform: translate(0%, 25%); 
 }
-
+}

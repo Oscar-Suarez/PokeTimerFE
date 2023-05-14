@@ -52,21 +52,27 @@
 
 
 /*RESPONSIVIDAD CELULARES*/
-@media(max-width: 1300px){
+@media(max-width: 1280px){
     .cont2 {
         font-size: 20px;
+        margin-left: 20px;
     }
     .contlvl100 {
-
         margin-top: 20px;
         padding: 20px 80px;
+    }
+    .contTiempo{
+        margin-left: 280%;
+        margin-top: -100% ;
     }
 }
 
 
-@media (max-width: 700px) {
+@media (max-width: 1140px){
+
     .contTiempo{
-        margin-right: 100%;
+        margin-right: 200%;
+        margin-top: -10%;
     }
 
     .tiempo {
@@ -87,6 +93,13 @@
         padding: 20px;
     }
 }
+@media (max-width: 820px) {
+    .contTiempo{
+        margin-right: 370%;
+        margin-top: -10%;
+    }
+}
+
 
 
 :root {

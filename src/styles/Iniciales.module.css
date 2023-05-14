@@ -6,6 +6,8 @@
   width: 98.7vw;
   height: 100vh;
   padding: 10px;
+  position: fixed;
+  overflow: auto;
 }
 
 .iniciales {
@@ -69,8 +71,10 @@
     background: #dd1818; 
     background: -webkit-linear-gradient(200deg,  #dd1818 , #333333); 
     background: linear-gradient(200deg, #dd1818, #333333); 
-    padding: 40px;
+    padding: 20px;
     height: 100vh;
+    width: 100%;
+    position: fixed;
   }
 
   .pokemon-1 {
@@ -96,6 +100,8 @@ background: -webkit-linear-gradient(400deg, #FFFFFF, #6DD5FA, #2980B9);
 background: linear-gradient(400deg, #FFFFFF, #6DD5FA, #2980B9); 
 padding: 40px;
     height: 100vh;
+    position: fixed;
+    width: 100%;
   }
 
 
@@ -123,6 +129,8 @@ background: linear-gradient(400deg, #11998e, #6be585);
       background: linear-gradient(400deg, #11998e, #6be585); 
       padding: 40px;
     height: 100vh;
+    position: fixed;
+    width: 100%;
   }
   
 
@@ -138,18 +146,14 @@ background: linear-gradient(400deg, #11998e, #6be585);
   @media (max-width: 1000px) {
 
     .iniciales {
-      margin-top: 300px;
+
       font-size: 15px;
     }
   
   }
   @media (max-width: 700px) {
 
-    .bkgd{    
 
-      width: 97.3vw;
-
-    }
     .iniciales {
       flex-direction: column;
       margin-top: 90px;
@@ -165,11 +169,12 @@ background: linear-gradient(400deg, #11998e, #6be585);
       width: 70px;
       height: 70px;
       margin-right: 10px;
-      margin-bottom: 10px;
+      margin-bottom: 0px;
       
     }
     .info{
-      margin-bottom: 20px;
+      margin-top: -80px;
+      margin-bottom: 90px;
     }
     .pokemon-0 button,
     .pokemon-1 button,
@@ -182,14 +187,22 @@ background: linear-gradient(400deg, #11998e, #6be585);
   .imgElegido{
     width: 300px;
     margin-left: 40px;
+    
 
   }
 
   .background-258, .background-810, .background-4{
-    height: 800px;
+    height: 1000px;
   }
 
   .pokeCont{
-    margin-top: 60px;
+    font-size: 15px;
+    margin-top: 40px;
+    margin-left: -30px;
+  }
+
+  .texto{
+    width: 60%;
+    margin-left: 18%;
   }
   }

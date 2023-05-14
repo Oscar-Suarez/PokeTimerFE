@@ -1,14 +1,19 @@
 .background {
     background-image: url('../assets/img/001.jpg');
     padding: 10px;
-    width: 100vw;
-    height: 960px;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: center;
 }
 
 .contPr {
     background-color: #cb1616;
     padding: 50px;
-    margin: 40px 200px;
+    margin: 70px 200px;
     border-radius: 20px;
 }
 
@@ -100,12 +105,15 @@
 
 @media (max-width: 830px) {
     .background {
-        padding: 1px;
-    }
 
+        position: fixed;
+        overflow: auto; 
+        max-height: 100vh;
+
+    }
     .contPr {
         padding: 10px;
-        margin: 10px;
+        margin: 150px 10px 10px 10px;
     }
 
     .contCir {

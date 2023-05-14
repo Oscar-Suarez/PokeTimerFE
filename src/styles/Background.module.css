@@ -1,4 +1,4 @@
-.background{
+.fondoKanto{
     background-image: url('../assets/img/Kanto.jpg');
     background-size: cover;
     background-repeat: no-repeat;
@@ -8,9 +8,29 @@
     padding: 10px;
 }
 
+@media (max-width: 1300px){
+    .background{
+
+        width: 98.45vw;
+    }
+}
+
+@media (max-width: 900px){
+    .background{
+
+        width: 97.6vw;
+    }
+}
+@media (max-width: 700px){
+    .background{
+        width: 97.1vw;
+        height: 140vh;
+    }  
+}
+
 @media (max-width: 500px){
     .background{
-        width: 95.1vw;
+        width: 95vw;
         height: 140vh;
     }  
 }

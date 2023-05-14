@@ -59,6 +59,8 @@ function PokePrincipal() {
   }
 
   return (
+
+    <div className={styles.fondoKanto}>
     <div className={styles.cont}>
       {pokePrincipal.name ? (
         <div className={`${styles[`background-${pokePrincipal.types[0].type.name}`]} ${styles.background}`}>
@@ -89,6 +91,7 @@ function PokePrincipal() {
         </div>
       )}
     </div>
+    </div>
   );
 
 
@@ -98,11 +101,3 @@ function PokePrincipal() {
 export default PokePrincipal;
 
 
-/*(
-  pokePrincipal.nivel && pokePrincipal.nivel === 100 ? (
-  <div className={styles.bkgd}>
-    <h1 className={styles.h1}>¡Bienvenid@ al PokeTimer!</h1>
-    <Link to="/Iniciales" ><button className={styles.btn}>Elegir Pokémon inicial.</button></Link>
-  </div>
-  ) : (<div>
-  </div>))}*/ 

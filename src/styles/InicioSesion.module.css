@@ -39,13 +39,12 @@
     border-radius: 80px;
 }
 
-.input:focus {
-    border-color: rgba(0, 0, 0, 0.468);
-    outline: none;
-}
+
 
 .input:active,
 .input:focus {
+    border-color: rgba(0, 0, 0, 0.468);
+    outline: none;
     color: #805151;
     border-radius: 80px;
 }
@@ -83,7 +82,7 @@
     }
 
     .contForm {
-        padding: 30px;
+        padding: 30px 18px;
     }
 
     .img {
