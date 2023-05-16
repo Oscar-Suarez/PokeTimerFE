@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/Oscar-Suarez/PokeTimerFE/static/css/main.f242ac43.css",
-    "main.js": "/Oscar-Suarez/PokeTimerFE/static/js/main.0b738da7.js",
-    "static/js/787.97781bc5.chunk.js": "/Oscar-Suarez/PokeTimerFE/static/js/787.97781bc5.chunk.js",
-    "static/media/Kanto.jpg": "/Oscar-Suarez/PokeTimerFE/static/media/Kanto.9654453ebdac04dc23cc.jpg",
-    "static/media/001.jpg": "/Oscar-Suarez/PokeTimerFE/static/media/001.3199fdb81439c94e281b.jpg",
-    "static/media/Lab.jpg": "/Oscar-Suarez/PokeTimerFE/static/media/Lab.0448c4f6e1bfb935ec73.jpg",
-    "static/media/arca.png": "/Oscar-Suarez/PokeTimerFE/static/media/arca.18e7a13fd7e6c0492298.png",
-    "static/media/Darkrai.png": "/Oscar-Suarez/PokeTimerFE/static/media/Darkrai.1a308f6c9d13094f209c.png",
-    "static/media/wild.png": "/Oscar-Suarez/PokeTimerFE/static/media/wild.f55cea1b3952e8858ebc.png",
-    "static/media/choose1.png": "/Oscar-Suarez/PokeTimerFE/static/media/choose1.50b98eac856ac9ae1dcb.png",
-    "static/media/ball.png": "/Oscar-Suarez/PokeTimerFE/static/media/ball.b29996acd883f1fd3c6a.png",
-    "static/media/bl1.png": "/Oscar-Suarez/PokeTimerFE/static/media/bl1.6e7ed61959f5ff4a533a.png",
-    "index.html": "/Oscar-Suarez/PokeTimerFE/index.html",
-    "main.f242ac43.css.map": "/Oscar-Suarez/PokeTimerFE/static/css/main.f242ac43.css.map",
-    "main.0b738da7.js.map": "/Oscar-Suarez/PokeTimerFE/static/js/main.0b738da7.js.map",
-    "787.97781bc5.chunk.js.map": "/Oscar-Suarez/PokeTimerFE/static/js/787.97781bc5.chunk.js.map"
+    "main.css": "/PokeTimerFE/static/css/main.7ae9fa7c.css",
+    "main.js": "/PokeTimerFE/static/js/main.f700e48d.js",
+    "static/js/787.97781bc5.chunk.js": "/PokeTimerFE/static/js/787.97781bc5.chunk.js",
+    "static/media/Kanto.jpg": "/PokeTimerFE/static/media/Kanto.9654453ebdac04dc23cc.jpg",
+    "static/media/001.jpg": "/PokeTimerFE/static/media/001.3199fdb81439c94e281b.jpg",
+    "static/media/Lab.jpg": "/PokeTimerFE/static/media/Lab.0448c4f6e1bfb935ec73.jpg",
+    "static/media/arca.png": "/PokeTimerFE/static/media/arca.18e7a13fd7e6c0492298.png",
+    "static/media/Darkrai.png": "/PokeTimerFE/static/media/Darkrai.1a308f6c9d13094f209c.png",
+    "static/media/wild.png": "/PokeTimerFE/static/media/wild.f55cea1b3952e8858ebc.png",
+    "static/media/choose1.png": "/PokeTimerFE/static/media/choose1.50b98eac856ac9ae1dcb.png",
+    "static/media/ball.png": "/PokeTimerFE/static/media/ball.b29996acd883f1fd3c6a.png",
+    "static/media/bl1.png": "/PokeTimerFE/static/media/bl1.6e7ed61959f5ff4a533a.png",
+    "index.html": "/PokeTimerFE/index.html",
+    "main.7ae9fa7c.css.map": "/PokeTimerFE/static/css/main.7ae9fa7c.css.map",
+    "main.f700e48d.js.map": "/PokeTimerFE/static/js/main.f700e48d.js.map",
+    "787.97781bc5.chunk.js.map": "/PokeTimerFE/static/js/787.97781bc5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f242ac43.css",
-    "static/js/main.0b738da7.js"
+    "static/css/main.7ae9fa7c.css",
+    "static/js/main.f700e48d.js"
   ]
 }
