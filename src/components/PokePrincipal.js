@@ -37,7 +37,7 @@ function PokePrincipal() {
   /*LETRERO AL MOMENTO DE LLEGAR AL NIVEL 100*/
   if (pokePrincipal.nivel === 100) {
     return (
-
+      <div className={styles.fondoKanto}>
       <div className={`${styles[`background-${pokePrincipal.types[0].type.name}`]} ${styles.background100}`}>
         <div className={styles.cont100}>
           {pokePrincipal.sprites && <img src={pokePrincipal.sprites.other["official-artwork"].front_default} alt="Poke Principal" className={styles.imgPP100} />}
@@ -53,6 +53,7 @@ function PokePrincipal() {
         <div className={styles.contCron100}>
           <Cronometro />
         </div>
+      </div>
       </div>
     )
 

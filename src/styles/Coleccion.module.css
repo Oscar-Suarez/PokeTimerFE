@@ -15,7 +15,6 @@
     box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5);
     padding: 10px;
     text-align: center;
-
   }
   
   .imgCole{
@@ -64,6 +63,7 @@
 .ordenar{
   font-size: 20px;
   color: #8B0000;
+  padding-top: 5px;
 }
 
 .opciones{
@@ -120,4 +120,37 @@
 
   color: #805151;
   border-radius: 80px;
+}
+
+@media(max-width: 1270px){
+  .container {
+    grid-template-columns: repeat(2, 1fr); 
+  }
+}
+
+@media(max-width: 800px){
+  .container {
+    grid-template-columns: repeat(1, 1fr); 
+  }
+
+  .contBtn {
+    margin: -9% 21%;
+  }
+  
+  .contBtn .pagbtn:not(:first-child) {
+    margin-left: 70%;
+  }
+  
+}
+
+@media(max-width: 550px){
+  .container {
+    grid-gap: 20px;
+    padding: 100px 40px 0px 40px;
+  }
+  .ordenar{
+    font-size: 20px;
+    color: #8B0000;
+    padding-top: 30px;
+  }
 }

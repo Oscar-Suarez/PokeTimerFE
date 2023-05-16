@@ -136,7 +136,7 @@ function Coleccion() {
       <div className={styles.menu} key={10}>
         <h1 className={styles.ordenar}>Ordenar por:</h1>
         <select value={orden} onChange={cambiarOrden} className={styles.opciones} key={0}>
-          <option value="ultimoAgregado" key={1}>Último agregado</option>
+          <option value="ultimoAgregado" key={1}>Orden inicial</option>
           <option value="id" key={2}>ID</option>
           <option value="tipo" key={3}>Tipo</option>
           <option value="alfabetico" key={4}>Alfabéticamente</option>
@@ -144,7 +144,7 @@ function Coleccion() {
       </div>
       <div className={styles.filto}>
         <input type="text" id="filtro" className={styles.inputFiltro} onKeyDown={darEnter} />
-        <button onClick={() => filtrarPorTipo(document.getElementById("filtro").value)}>Filtrar por tipo principal</button>
+        <button onClick={() => filtrarPorTipo(document.getElementById("filtro").value)} key={"filtro"}>Filtrar por tipo principal</button>
       </div>
       <div className={`${styles.container}`}>
         {itemsVisibles.map((coleccion, index) => (
