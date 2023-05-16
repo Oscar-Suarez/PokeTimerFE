@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/PokeTimerFE/static/css/main.7ae9fa7c.css",
-    "main.js": "/PokeTimerFE/static/js/main.1c4f3724.js",
+    "main.js": "/PokeTimerFE/static/js/main.6249090a.js",
     "static/js/787.97781bc5.chunk.js": "/PokeTimerFE/static/js/787.97781bc5.chunk.js",
     "static/media/Kanto.jpg": "/PokeTimerFE/static/media/Kanto.9654453ebdac04dc23cc.jpg",
     "static/media/001.jpg": "/PokeTimerFE/static/media/001.3199fdb81439c94e281b.jpg",
@@ -14,11 +14,11 @@
     "static/media/bl1.png": "/PokeTimerFE/static/media/bl1.6e7ed61959f5ff4a533a.png",
     "index.html": "/PokeTimerFE/index.html",
     "main.7ae9fa7c.css.map": "/PokeTimerFE/static/css/main.7ae9fa7c.css.map",
-    "main.1c4f3724.js.map": "/PokeTimerFE/static/js/main.1c4f3724.js.map",
+    "main.6249090a.js.map": "/PokeTimerFE/static/js/main.6249090a.js.map",
     "787.97781bc5.chunk.js.map": "/PokeTimerFE/static/js/787.97781bc5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7ae9fa7c.css",
-    "static/js/main.1c4f3724.js"
+    "static/js/main.6249090a.js"
   ]
 }
