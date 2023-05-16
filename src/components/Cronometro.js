@@ -62,14 +62,14 @@ function Cronometro() {
             }
             //Funcionalidades para aumentar tiempo y nivel para cada pokémon seleccionado como principal; además de aumentar el tiempo total y el tiempo local del cronómetro.
             intervalo = setInterval(() => {
-                setTiempo((tiempo) => tiempo + 10000);
-                setTiempoTotal((tiempoTotal) => tiempoTotal + 10000);
-                setTiempoLocal((tiempoLocal) => tiempoLocal + 10000);
+                setTiempo((tiempo) => tiempo + 1000);
+                setTiempoTotal((tiempoTotal) => tiempoTotal + 1000);
+                setTiempoLocal((tiempoLocal) => tiempoLocal + 1000);
                 const xpNivelActual = xpParaSubirNivel[nivel];
                 if (pokePrincipal.tiempo >= xpNivelActual) {
                     setNivel((nivel) => nivel + 1);
                     if (pokePrincipal.nivel === 10) {
-                        setPokeball((pokeball) => pokeball + 99);
+                        setPokeball((pokeball) => pokeball + 10);
                     } else if ((pokePrincipal.nivel % 20 === 0 && pokePrincipal.nivel !== 0) || pokePrincipal.nivel === 50) {
                         setPokeball((pokeball) => pokeball + 1);
                     }
