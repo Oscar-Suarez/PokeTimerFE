@@ -84,7 +84,7 @@ function PokeSalvaje() {
       {pokemonData.length > 0 ? (
         pokeball > 0 ? (
           pokeElegido ? (
-            <div className={styles.contSalvaje}>
+            <div className={styles.contSalvaje2}>
               <h2 className={`${color[`${pokeElegido.types[0].type.name}`]} ${styles.atrapaste} `}>¡Atrapaste a: {pokeElegido.name}!</h2>
               <img src={pokeElegido.sprites.other["official-artwork"].front_default} alt={pokeElegido.name} className={styles.pokeSalvaje}/>
               <div className={styles.contSalvaje2}>
@@ -95,7 +95,8 @@ function PokeSalvaje() {
             </div>
             </div>
           ) : (
-            <div >
+            
+            <div className={styles.contSalvaje}>
               <h1 className={styles.aparecio}>¡Un Pokémon salvaje apareció!</h1>
               <h1 className={styles.lanzar}>¡Lanzar Pokeball!</h1>
               <button onClick={random} className={styles.btn} ></button>

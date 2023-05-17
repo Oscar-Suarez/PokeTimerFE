@@ -94,6 +94,7 @@
     }
 }
 @media (max-width: 820px) {
+
     .contTiempo{
         margin-right: 370%;
         margin-top: -10%;
@@ -102,6 +103,7 @@
 }
 
 @media (max-width: 500px){
+    
     .contlvl100 {
         padding: 10px 10px;
         margin-right: -5%;

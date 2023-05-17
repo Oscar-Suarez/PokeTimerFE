@@ -19,7 +19,7 @@ function App() {
         <Router>
           <AppBar />
           <Routes>
-            <Route path='/' element={<Home />} />
+            <Route path='/PokeTimerFE' element={<Home/>} />
             <Route path='/InicioSesion' element={[<InicioSesion key={"IniciarSesion"} />,]} />
             <Route path='/Registro' element={[<Registro key={"Registro"} />,]} />
             <Route path='/Iniciales' element={[<Iniciales key={"iniciales"} />,]} />

@@ -81,17 +81,42 @@
 }
 
 
-.contBtn {
+.contBtn2 {
   display: flex;
   position: relative; 
 
   margin: -9% 11%;
 }
 
-.contBtn .pagbtn:not(:first-child) {
+.contBtn2 .pagbtn2:not(:first-child) {
   margin-left: 84%;
 }
 
+.contBtn {
+  display: flex;
+  position: relative; 
+
+  margin: 2% 13% -7% 12%;
+}
+
+.contBtn .pagbtn:not(:first-child) {
+  margin-left: 90%;
+}
+
+
+.pagbtn2{
+  background-color: #8b0000ec ;
+  width: 100px;
+  height: 50px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  
+}
+
+.pagbtn2:hover {
+  color: #fefefe;
+}
 
 .pagbtn{
   background-color: #8b0000ec ;
@@ -132,12 +157,20 @@
   .container {
     grid-template-columns: repeat(1, 1fr); 
   }
-
   .contBtn {
-    margin: -9% 21%;
+    margin: 10% 30% -16% 22%;
   }
   
   .contBtn .pagbtn:not(:first-child) {
+    margin-left: 80%;
+  }
+  
+
+  .contBtn2 {
+    margin: -9% 21%;
+  }
+  
+  .contBtn2 .pagbtn2:not(:first-child) {
     margin-left: 70%;
   }
   
@@ -152,5 +185,19 @@
     font-size: 20px;
     color: #8B0000;
     padding-top: 30px;
+  }
+
+  .contBtn {
+    margin: 40% 15% -17% 12%;
+  }
+  
+  .contBtn .pagbtn:not(:first-child) {
+    margin-left: 50%;
+  }
+  .contBtn2 {
+    margin: 9% 24%;
+  }
+  .contBtn2 .pagbtn2:not(:first-child) {
+    margin-left: 40%;
   }
 }

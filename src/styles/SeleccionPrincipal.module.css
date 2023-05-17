@@ -180,11 +180,13 @@
 
   .contTipos{
     margin-left: -50%;
+  
   }
   .tipoPP{
     padding: 1px 6px;
     font-size: 20px;
     margin-left: 10px;
+
   }
   .background100 {
     padding: 20px;
@@ -207,29 +209,30 @@
 
   .imgPP{
     margin-left: -5%;
-    margin-top: -4%;
+    margin-top: -14%;
     width: 250px;
   }
   .contInfo{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 16%;
-    margin-right: 10%;
+
+    flex-direction: column;
   }
   .name{
     font-size: 30px;
     text-align: center;
-    margin-left: 165px;
+    margin-left: 60px;
+    margin-top: 140px;
   }
   .contTipos{
-    margin-left: 150px;
+    margin-left: 50px;
     text-align: center;
   }
 
 
 }
 @media (max-width: 820px) {
+
 
   .background {
     padding-bottom: 900px;
@@ -243,6 +246,7 @@
   .contInfo{
     margin-top: 45%;
     margin-right: 40%;
+
   }
   .background100 {
 

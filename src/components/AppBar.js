@@ -24,7 +24,7 @@ function AppBar() {
           </Link>
         ) : (
           <div className={styles.navLeft}>
-            <Link to="/">
+            <Link to="/PokeTimerFE">
               <img alt="PokeTimer" className={styles.navImg} src={bl1} />
             </Link>
           </div>
