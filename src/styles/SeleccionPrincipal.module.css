@@ -197,7 +197,33 @@
   width: 80%;
 }
 }
+@media (max-width: 690px){
+  .background100 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 50px 50px 70px rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 90px;
+    border-radius: 50px;
+  
+  }
+  
+  .cont100{
+    align-items: center;
+    flex-direction: column;
+  }
+  .imgPP100{
+    width: 400px;
+    margin-top: 0px;
+    margin-bottom: -50px;
+  }
 
+}
 @media (max-width: 500px){
   .name{
    font-size: 25px;
@@ -218,6 +244,9 @@
 @media (max-width: 394px){
   .contTipos{
     margin-right: 0%;
+  }
+  .imgPP100{
+    width: 300px;
   }
 }
 

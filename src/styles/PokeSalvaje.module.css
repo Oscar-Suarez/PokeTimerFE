@@ -131,14 +131,22 @@
 
 
 /*RESPONSIVIDAD*/
-
+@media (max-width: 910px) {
+    .verificacion {
+        position: absolute;
+        width: 310px;
+        top: 200px;
+        left: 50%;
+    }
+    
+}
 @media (max-width: 750px){
 
     .verificacion {
         position: absolute;
         width: 310px;
         top: 200px;
-        left: 20%;
+        left: 35%;
     }
     .img {
         width: 100%;
@@ -229,7 +237,10 @@
 
 
 @media (max-width: 490px){
+    .verificacion {
 
+        left: 20%;
+    }
 
     .aparecio {
         font-size: 18px;
@@ -332,7 +343,7 @@
     .verificacion {
         width: 200px;
         top: 200px;
-        left: 35%;
+        left: 25%;
         font-size: 20px;
     }
 

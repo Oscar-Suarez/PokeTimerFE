@@ -147,8 +147,8 @@ function Coleccion() {
         <button onClick={() => filtrarPorTipo(document.getElementById("filtro").value)} key={"filtro"}>Filtrar por tipo principal</button>
       </div>
       <div className={styles.contBtn}>
-        <button onClick={pagAnterior} className={styles.pagbtn}>Anterior</button>
-        <button onClick={pagSiguiente} className={styles.pagbtn}>Siguiente</button>
+        <button onClick={pagAnterior} className={styles.pagbtn} key={"ba1"}>Anterior</button>
+        <button onClick={pagSiguiente} className={styles.pagbtn} key={"ba2"}>Siguiente</button>
       </div>
       <div className={`${styles.container}`}>
         {itemsVisibles.map((coleccion, index) => (
@@ -177,8 +177,8 @@ function Coleccion() {
         ))}
       </div>
       <div className={styles.contBtn2}>
-        <button onClick={pagAnterior} className={styles.pagbtn2}>Anterior</button>
-        <button onClick={pagSiguiente} className={styles.pagbtn2}>Siguiente</button>
+        <button onClick={pagAnterior} className={styles.pagbtn2} key={"bb1"}>Anterior</button>
+        <button onClick={pagSiguiente} className={styles.pagbtn2} key={"bb2"}>Siguiente</button>
       </div>
 
     </>

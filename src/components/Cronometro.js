@@ -153,12 +153,12 @@ function Cronometro() {
         return (
             <div className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.contlvl100}`} >
                 <section >
-                <p className={styles.nivel}>Nivel: {pokePrincipal.nivel}</p>
-                    <p className={styles.pokeball}>Tienes: {pokeball} Pokeballs.</p>
+                <p className={styles.general100}>Nivel: {pokePrincipal.nivel}</p>
+                    <p className={styles.pokeball100}>Tienes: {pokeball} Pokeballs.</p>
                 </section>
-                <h1>Felicidades, alcanzaste el máximo nivel.</h1>
-                <h1>Tiempo que has usado a {pokePrincipal.name}: </h1>
-                <h1>{formatoTiempo(pokePrincipal.tiempo)} horas.</h1>
+                <h1 className={styles.general100}>Felicidades, alcanzaste el máximo nivel.</h1>
+                <h1 className={styles.general100}>Tiempo que has usado a {pokePrincipal.name}: </h1>
+                <h1 className={styles.general100}>{formatoTiempo(pokePrincipal.tiempo)} horas.</h1>
                 <Link to="/Colección">
                     <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
                 </Link>
