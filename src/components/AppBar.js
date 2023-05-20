@@ -15,6 +15,10 @@ function AppBar() {
     setIsOpen(!isOpen);
   };
 
+  const handleCloseMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className={`${styles.navbar} ${isOpen ? styles.open : ""}`}>
       <div className={styles.navContainer}>
@@ -34,17 +38,17 @@ function AppBar() {
           {sesionIniciada ? (
             <>
               <li>
-                <Link to="/Perfil" className={styles.a}>
+                <Link to="/Perfil" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Perfil/Timer</h3>
                 </Link>
               </li>
               <li>
-                <Link to="/PokeSalvaje" className={styles.a}>
+                <Link to="/PokeSalvaje" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Pokémon salvaje</h3>
                 </Link>
               </li>
               <li>
-                <Link to="/Colección" className={styles.a}>
+                <Link to="/Colección" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Colección/Pokedex</h3>
                 </Link>
               </li>
