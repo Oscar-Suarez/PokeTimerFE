@@ -1,8 +1,9 @@
-import { useContext, useState } from "react";
+import { useContext, useState,useEffect } from "react";
 import { MyContext } from "../MyContext";
 import { Link } from 'react-router-dom';
 import styles from '../styles/Coleccion.module.css';
 import color from '../styles/SeleccionPrincipal.module.css'
+import axios from "axios";
 
 function Coleccion() {
   const { setPokePrincipal, pokeSalvaje } = useContext(MyContext);
@@ -10,15 +11,31 @@ function Coleccion() {
   const [pokeSalvajeLocal, setPokeSalvajeLocal] = useState([...pokeSalvaje]);
   const [paginaActual, setPaginaActual] = useState(1);
   const itemsPorPag = 8;
+  const [tipoFiltro, setTipoFiltro] = useState("");
+  const id = localStorage.getItem("id");
+  const [coleccionPokes, setColeccionPokes] = useState([]);
   const ultimoIndice = paginaActual * itemsPorPag;
   const primerIndice = ultimoIndice - itemsPorPag;
   const itemsVisibles = pokeSalvajeLocal.slice(primerIndice, ultimoIndice);
-  const [tipoFiltro, setTipoFiltro] = useState("");
 
-
+  useEffect(() => {
+    const traerPokes = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3030/getPokemon?idUsuario=${id}`
+        );
+        const data = response.data;
+        setColeccionPokes(data);
+        setPokeSalvajeLocal(data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    traerPokes();
+  }, [id]);
+  
   //Función para seleccionar el pokémon principal que se usará en el cronómetro.
   const seleccionar = (pokemon) => {
-    console.log(`Seleccionaste a ${pokemon.name}`);
     setPokePrincipal(pokemon);
   };
 
@@ -36,6 +53,7 @@ function Coleccion() {
   };
 
   
+
 
 
   //Función para traducir los tipos 
@@ -64,14 +82,15 @@ function Coleccion() {
   const filtrarPorTipo = (tipo) => {
     setTipoFiltro(tipo);
     if (tipoFiltro) {
-      const pokemonesFiltrados = pokeSalvaje.filter((pokemon) => {
-        const primerTipo = pokemon.types[0].type.name;
+      const pokemonesFiltrados = coleccionPokes.filter((pokemon) => {
+        const primerTipo = pokemon.tipos[0].type.name;
         return traduccionTipos[primerTipo].toLowerCase() === tipo.toLowerCase();
       });
       setPokeSalvajeLocal(pokemonesFiltrados);
     } else {
       setPokeSalvajeLocal([...pokeSalvaje]);
     }
+    setPaginaActual(1);
   };
   const darEnter = (event) => {
     if (event.keyCode === 13) {
@@ -86,13 +105,13 @@ function Coleccion() {
 
   // Función para ordenar los Pokémon por la fecha de su último agregado (de más reciente a más antiguo)
   const ordenarPorUltimoAgregado = () => {
-    setPokeSalvajeLocal([...pokeSalvaje])
+    setPokeSalvajeLocal([...coleccionPokes])
   };
   // Función para ordenar los Pokémon por tipo
   const ordenarPorTipo = () => {
     setPokeSalvajeLocal([...pokeSalvajeLocal].sort((a, b) => {
-      const tipoA = a.types[0].type.name;
-      const tipoB = b.types[0].type.name;
+      const tipoA = a.tipos[0].type.name;
+      const tipoB = b.tipos[0].type.name;
       return tipoA.localeCompare(tipoB);
     }));
   };
@@ -140,11 +159,12 @@ function Coleccion() {
           <option value="id" key={2}>ID</option>
           <option value="tipo" key={3}>Tipo</option>
           <option value="alfabetico" key={4}>Alfabéticamente</option>
+          <option value="ultimoAgregado" key={5}>Reiniciar</option>
         </select>
       </div>
-      <div className={styles.filto}>
+      <div className={styles.filtro}>
         <input type="text" id="filtro" className={styles.inputFiltro} onKeyDown={darEnter} />
-        <button onClick={() => filtrarPorTipo(document.getElementById("filtro").value)} key={"filtro"}>Filtrar por tipo principal</button>
+        <button onClick={() => filtrarPorTipo(document.getElementById("filtro").value)} key={"filtro"} className={styles.filtroBtn}>Filtrar por tipo principal</button>
       </div>
       <div className={styles.contBtn}>
         <button onClick={pagAnterior} className={styles.pagbtn} key={"ba1"}>Anterior</button>
@@ -153,22 +173,22 @@ function Coleccion() {
       <div className={`${styles.container}`}>
         {itemsVisibles.map((coleccion, index) => (
           <div >
-            <li key={index} className={`${color[`background-${coleccion.types[0].type.name}`]} ${styles.liCole} `}>
-              <p className={`${color[`color-${coleccion.types[0].type.name}`]} ${styles.nameCole} `}>{coleccion.name.toUpperCase()}{" "}</p>
-              <img src={coleccion.sprites.front_default} alt="" key={index} className={styles.imgCole} />
-              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}> PokeDex: #{coleccion.id}</p>
-              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}>
+            <li key={index} className={`${color[`background-${coleccion.tipos[0].type.name}`]} ${styles.liCole} `}>
+              <p className={`${color[`color-${coleccion.tipos[0].type.name}`]} ${styles.nameCole} `}>{coleccion.name.toUpperCase()}{" "}</p>
+              <img src={coleccion.pixSprite} alt="" key={index} className={styles.imgCole} />
+              <p className={`${styles[`${coleccion.tipos[0].type.name}`]} ${styles.colorGeneral}`}> PokeDex: #{coleccion.dex}</p>
+              <p className={`${styles[`${coleccion.tipos[0].type.name}`]} ${styles.colorGeneral}`}>
                 Tipo(s):
-                {coleccion.types.map((type, index) => (
-                  <span key={index} className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorTipos}`}>
+                {coleccion.tipos.map((type, index) => (
+                  <span key={index} className={`${styles[`${coleccion.tipos[0].type.name}`]} ${styles.colorTipos}`}>
                     {traduccionTipos[type.type.name]}
-                    {index < coleccion.types.length - 1 ? " /" : ""}
+                    {index < coleccion.tipos.length - 1 ? " /" : ""}
                   </span>
                 ))}
               </p>
-              <p className={`${styles[`${coleccion.types[0].type.name}`]} ${styles.colorGeneral}`}>nivel: {coleccion.nivel}</p>
+              <p className={`${styles[`${coleccion.tipos[0].type.name}`]} ${styles.colorGeneral}`}>nivel: {coleccion.nivel}</p>
               <Link to="/Perfil">
-                <button onClick={() => seleccionar(coleccion)} className={`${color[`${coleccion.types[0].type.name}`]} ${styles.btnCole}`}>
+                <button onClick={() => seleccionar(coleccion)} className={`${color[`${coleccion.tipos[0].type.name}`]} ${styles.btnCole}`}>
                   Elegir como pokémon principal.
                 </button>
               </Link>

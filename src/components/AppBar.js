@@ -8,7 +8,7 @@ import { IconContext } from "react-icons";
 import bl1 from "../assets/img/bl1.png";
 
 function AppBar() {
-  const { sesionIniciada } = useContext(MyContext);
+  const { sesionIniciada, setSesionIniciada } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -18,6 +18,12 @@ function AppBar() {
   const handleCloseMenu = () => {
     setIsOpen(false);
   };
+
+  const cerrarSesion = () => {
+    setSesionIniciada(false)
+    localStorage.setItem('token', "")
+    localStorage.setItem('id', "")
+  }
 
   return (
     <nav className={`${styles.navbar} ${isOpen ? styles.open : ""}`}>
@@ -32,11 +38,13 @@ function AppBar() {
               <img alt="PokeTimer" className={styles.navImg} src={bl1} />
             </Link>
           </div>
+
         )}
 
         <ul className={styles.navLinks}>
           {sesionIniciada ? (
             <>
+
               <li>
                 <Link to="/Perfil" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Perfil/Timer</h3>
@@ -52,16 +60,21 @@ function AppBar() {
                   <h3>Colección/Pokedex</h3>
                 </Link>
               </li>
+              <li><Link to={"/PokeTimerFE"} className={styles.a} onClick={handleCloseMenu}>
+                <h5 onClick={cerrarSesion}>Cerrar Sesión</h5>
+              </Link>
+              </li>
+
             </>
           ) : (
             <>
               <li>
-                <Link to="/InicioSesion" className={styles.a}>
+                <Link to="/InicioSesion" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Iniciar Sesión</h3>
                 </Link>
               </li>
               <li>
-                <Link to="/Registro" className={styles.a}>
+                <Link to="/Registro" className={styles.a} onClick={handleCloseMenu}>
                   <h3>Registrarse</h3>
                 </Link>
               </li>

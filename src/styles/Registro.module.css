@@ -14,13 +14,15 @@
 
 .img {
     width: 500px;
-    margin-left: 50px;
+
 }
 
 .contForm {
     background-color: #fffbd500;
     border-radius: 20px;
-    margin-bottom: 100px;
+    padding: 0px;
+
+    margin: 100px 100px 100px 90px;
     box-shadow: 20px 35px 100px rgba(0, 0, 0, 0.5);
 }
 
@@ -35,7 +37,7 @@
     font-size: 1em;
     background-color: #fffbd500;
     padding: 9px;
-    margin: 10px;
+    margin: 5px;
     border-radius: 80px;
     color: #ffffff;
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
@@ -52,15 +54,6 @@
 
 }
 
-.noShad {
-    font-size: 1em;
-    background-color: #fffbd500;
-    padding: 9px;
-    margin: 10px;
-    border-radius: 80px;
-    color: #ffffff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-}
 
 .contBtn {
     font-size: 10px;
@@ -89,58 +82,60 @@
 .h2 {
     border-color: rgba(0, 0, 0, 0.468);
     color: #ffffff;
+    margin: 10px 0px;
 }
 
 
 
 /*RESPONSIVIDAD CELULARES*/
 
+@media (max-width: 1400px){
+    .img {
+        width: 300px;
+    
+    }
+}
 @media (max-width: 1200px) {
 
 
     .contRegistro {
         flex-direction: column;
         align-items: center;
-    }
-
-    .img {
-        width: 300px;
-        margin: 0;
+        margin-top: -80px;
     }
 
     .contForm {
         margin-top: 140px;
         width: 320px;
         height: 300px;
-        margin-bottom: 10px 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        color: #ffffff;
     }
 
     .form {
+        flex-direction: column;
         margin: 20px;
-    
     }
-
-
+    .form label{
+        font-size: 16px;
+    }
     .input {
         font-size: 12px;
         margin: 2px;
-        width: 60px;
-    }
-
-    .fecha {
-        width: 100px;
-    }
-
-    .noShad {
-        font-size: 0.8em;
-        margin: 5px;
         width: 100px;
     }
 
     .contBtn {
-        margin-top: 40px;
+        margin-top: 5px;
     }
-
+    .contForm p{
+        margin-top: -20px;
+        color: #000000;
+    }
+    .contForm b{
+        cursor: pointer;
+    }
     .btn {
         width: 100px;
         height: 40px;

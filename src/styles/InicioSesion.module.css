@@ -70,8 +70,12 @@
 
 }
 
-
-
+.paraRegistro{
+    margin-top: 5%;
+}
+.paraRegistro b{
+    cursor: pointer;
+}
 
 
 /* RESPONSIVIDAD CELULAR */

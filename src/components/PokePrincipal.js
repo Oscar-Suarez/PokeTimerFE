@@ -41,7 +41,6 @@ function PokePrincipal() {
       <div className={`${styles[`background-${pokePrincipal.types[0].type.name}`]} ${styles.background100}`}>
         <div className={styles.cont100}>
           {pokePrincipal.sprites && <img src={pokePrincipal.sprites.other["official-artwork"].front_default} alt="Poke Principal" className={styles.imgPP100} />}
-
           <h1 className={`${styles[`color-${pokePrincipal.types[0].type.name}`]} ${styles.name100} `}>{pokePrincipal.name}</h1>
           {pokePrincipal.types.map((type, index) => (
             <span key={index} className={`${styles[type.type.name]} ${styles.tipoPP}`}>
@@ -58,24 +57,23 @@ function PokePrincipal() {
     )
 
   }
-
   return (
 
     <div className={styles.fondoKanto}>
     <div className={styles.cont}>
       {pokePrincipal.name ? (
-        <div className={`${styles[`background-${pokePrincipal.types[0].type.name}`]} ${styles.background}`}>
+        <div className={`${styles[`background-${pokePrincipal.tipos[0].type.name}`]} ${styles.background}`}>
           <div className={styles.contPoke}>
             <div>
-              {pokePrincipal.sprites && <img src={pokePrincipal.sprites.other["official-artwork"].front_default} alt="Poke Principal" className={styles.imgPP} />}
+              {pokePrincipal.fullSprite && <img src={pokePrincipal.fullSprite} alt="Poke Principal" className={styles.imgPP} />}
             </div>
             <div className={styles.contInfo}>
-              <h1 className={`${styles[`color-${pokePrincipal.types[0].type.name}`]} ${styles.name} `}>{pokePrincipal.name}</h1>
+              <h1 className={`${styles[`color-${pokePrincipal.tipos[0].type.name}`]} ${styles.name} `}>{pokePrincipal.name}</h1>
               <div className={styles.contTipos}>
-                {pokePrincipal.types.map((type, index) => (
+                {pokePrincipal.tipos.map((type, index) => (
                   <span key={index} className={`${styles[type.type.name]} ${styles.tipoPP}`}>
                     {typesTranslations[type.type.name]}
-                    {index < pokePrincipal.types.length - 1 ? "  " : ""}
+                    {index < pokePrincipal.tipos.length - 1 ? "  " : ""}
                   </span>
                 ))}
               </div>
@@ -84,7 +82,9 @@ function PokePrincipal() {
           <div className={styles.contCron}>
             <Cronometro />
           </div>
+
         </div>
+
       ) : (
         <div className={styles.bkgd}>
           <h1 className={styles.h1}>¡Bienvenid@ al PokeTimer!</h1>

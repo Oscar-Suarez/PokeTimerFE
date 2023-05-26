@@ -160,7 +160,7 @@
 @media (max-width: 960px) {
   .background {
     padding: 40px;
-    margin: 150px 40px;
+    margin: 30px 40px;
   }
   
 .name{
@@ -180,7 +180,6 @@
 @media (max-width: 800px){
   .background {
     padding: 40px 40px 600px;
-    margin: 150px 40px;
   }
   .contPoke{
     margin-left: 20%;
@@ -248,14 +247,16 @@
   .imgPP100{
     width: 300px;
   }
+  .contTipos{
+    margin-left: -20px;
+  }
 }
 
 @media (max-width: 360px){
-
-
-  .tipoPP{
-    margin-left: 2px;
+  .contInfo{
+    margin-left: -2%;
   }
+
 }
 
 

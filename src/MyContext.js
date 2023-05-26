@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState,useEffect } from 'react';
 
 const MyContext = createContext();
 
@@ -13,8 +13,16 @@ function MyContextProvider({ children }) {
   const [unaEvo, setUnaEvo] = useState(false);
   const [medallas, setMedallas] = useState(0);
   const [sesionIniciada, setSesionIniciada] = useState(false);
+  const [pokeInfoActual, setPokeInfoActual] = useState([]);
+  const BE_URL = 'http://localhost:3030/infoPokemon';
 
-
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      setSesionIniciada(true);
+    }
+  }, [setSesionIniciada]);
+  
 
 
   const contextValue = {
@@ -37,7 +45,10 @@ function MyContextProvider({ children }) {
     medallas,
     setMedallas,
     sesionIniciada,
-    setSesionIniciada
+    setSesionIniciada,
+    pokeInfoActual,
+    setPokeInfoActual,
+    BE_URL
   };
 
   return (

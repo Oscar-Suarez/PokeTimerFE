@@ -20,7 +20,8 @@ function Cronometro() {
     const [seleccionado, setSeleccionado] = useState(false);
     const [tiempoLocal, setTiempoLocal] = useState(0);
     const [evolucionEjecutada, setEvolucionEjecutada] = useState(false);
-    const { pokeball, setPokeball, pokePrincipal, nivel, setNivel, tiempo, setTiempo, setPokeSalvaje, pokeSalvaje, setEvolucionando, medallas, setMedallas } = useContext(MyContext);
+    const { pokeball, setPokeball, pokePrincipal, nivel, setNivel, tiempo, setTiempo, setPokeSalvaje, pokeSalvaje, setEvolucionando, medallas, setMedallas, BE_URL } = useContext(MyContext);
+    const id = localStorage.getItem("id");
 
     //Función para iniciar el cronómetro.
     const iniciar = useCallback(() => {
@@ -41,6 +42,16 @@ function Cronometro() {
         setDetenido(false);
     }, []);
 
+
+    const actualizarPokemon = async (idPokemon, nivel, tiempo) => {
+        try {
+            const response = await axios.put(`http://localhost:3030/putTiempoYNivel/${idPokemon}`, { nivel, tiempo });
+            return response.data;
+        } catch (error) {
+            console.error('Error al actualizar el Pokémon:', error);
+            throw new Error('Error al actualizar el Pokémon');
+        }
+    };
 
 
 
@@ -66,6 +77,7 @@ function Cronometro() {
                 setTiempoTotal((tiempoTotal) => tiempoTotal + 1000);
                 setTiempoLocal((tiempoLocal) => tiempoLocal + 1000);
                 const xpNivelActual = xpParaSubirNivel[nivel];
+
                 if (pokePrincipal.tiempo >= xpNivelActual) {
                     setNivel((nivel) => nivel + 1);
                     if (pokePrincipal.nivel === 10) {
@@ -103,9 +115,13 @@ function Cronometro() {
                             return {
                                 ...response.data,
                                 name: response.data.name.toUpperCase(),
+                                pixSprite: response.data.sprites.front_default,
+                                fullSprite: response.data.sprites.other["official-artwork"].front_default,
+                                tipos: response.data.types,
                                 nivel: 0,
                                 tiempo: 0,
                                 evoluciones: pokePrincipal.segundaEvo,
+                                segundaEvo: "",
                             };
                         })
                         .catch(error => {
@@ -117,8 +133,26 @@ function Cronometro() {
                                 setEvolucionando(nuevoPokemon);
                                 setPokeSalvaje(pokeSalvaje => [...pokeSalvaje, nuevoPokemon]);
                                 console.log(`¡${pokePrincipal.name} ha evolucionado!`);
-                                console.log(`COLECCCIÓN DE POKES ${pokeSalvaje.map(pokemon => pokemon.name).join(', ')}`);
                                 setEvolucionEjecutada(true); //Esta const se declara para que el bucle solo se repita 1 vez por cada evolución
+                                const guardarPokemonEnBD = async () => {
+                                    try {
+                                        await axios.post(BE_URL, {
+                                            name: nuevoPokemon.name,
+                                            pixSprite: nuevoPokemon.pixSprite,
+                                            fullSprite: nuevoPokemon.fullSprite,
+                                            tipos: nuevoPokemon.tipos,
+                                            nivel: nuevoPokemon.nivel,
+                                            tiempo: nuevoPokemon.tiempo,
+                                            evoluciones: nuevoPokemon.evoluciones,
+                                            segundaEvo: nuevoPokemon.segundaEvo,
+                                            dex: nuevoPokemon.id,
+                                            idUsuario: id
+                                        });
+                                    } catch (error) {
+                                        console.error(error);
+                                    }
+                                };
+                                guardarPokemonEnBD();
                             }
                         });
                 }
@@ -128,6 +162,17 @@ function Cronometro() {
         }
         return () => clearInterval(intervalo);
     }, [activo, detenido, evolucionEjecutada, medallas, nivel, pokePrincipal, pokeSalvaje, setEvolucionando, setMedallas, setNivel, setPokeSalvaje, setPokeball, setTiempo, tiempo, tiempoTotal]);
+
+    //Hook usado para actualizar el nivel y el tiempo del pokemon seleccionado
+    useEffect (() =>{
+        actualizarPokemon(pokePrincipal._id, nivel, tiempoTotal)
+        .then((pokemonActualizado) => {
+            // console.log('Pokémon actualizado:', pokemonActualizado);
+        })
+        .catch((error) => {
+            console.error('Error al actualizar el Pokémon:', error);
+        });
+    },[tiempoTotal])
 
 
     //Función para formatear el tiempo en horas, minutos y segundos.
@@ -141,7 +186,7 @@ function Cronometro() {
         return `${horas}:${minutos}:${segundos}`;
     };
     useEffect(() => {
-        if (pokePrincipal.id > 0) {
+        if (pokePrincipal.dex > 0) {
             setSeleccionado(true)
             setTiempo(() => pokePrincipal.tiempo);
             setNivel(() => pokePrincipal.nivel);
@@ -151,16 +196,16 @@ function Cronometro() {
     //Bucle necesario para cambiar de pantalla una vez se llega al nivel 100
     if (nivel === 100) {
         return (
-            <div className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.contlvl100}`} >
+            <div className={`${styles[`${pokePrincipal.tipos[0].type.name}`]} ${styles.contlvl100}`} >
                 <section >
-                <p className={styles.general100}>Nivel: {pokePrincipal.nivel}</p>
+                    <p className={styles.general100}>Nivel: {pokePrincipal.nivel}</p>
                     <p className={styles.pokeball100}>Tienes: {pokeball} Pokeballs.</p>
                 </section>
                 <h1 className={styles.general100}>Felicidades, alcanzaste el máximo nivel.</h1>
                 <h1 className={styles.general100}>Tiempo que has usado a {pokePrincipal.name}: </h1>
                 <h1 className={styles.general100}>{formatoTiempo(pokePrincipal.tiempo)} horas.</h1>
                 <Link to="/Colección">
-                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
+                    <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
                 </Link>
             </div>
         );
@@ -171,17 +216,17 @@ function Cronometro() {
         <div className={styles.cont}>
             {seleccionado ? (
                 <section className={styles.contTiempo}>
-                    <h1 className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.tiempo}`}>{formatoTiempo(tiempoLocal)}</h1>
-                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={iniciar}>Iniciar/Continuar.</button>
-                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={pausa}>Pausar.</button>
-                    <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`} onClick={reiniciar}>Reiniciar.</button>
-                    <div className={`${styles[`${pokePrincipal.types[0].type.name}`]} ${styles.cont2}`}>
-                    <p className={styles.nivel}>Nivel: {pokePrincipal.nivel}</p>
-                    <p className={styles.pokeball}>Tienes: {pokeball} Pokeballs.</p>
-                    <h1 className={styles.tiempoUsado}>Tiempo que has usado a <p>{pokePrincipal.name} :<h1 className={`${styles.tiempo2}`}>{formatoTiempo(pokePrincipal.tiempo)}</h1></p> </h1>
-                    <Link to="/Colección">
-                        <button className={`${color[`${pokePrincipal.types[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
-                    </Link>
+                    <h1 className={`${styles[`${pokePrincipal.tipos[0].type.name}`]} ${styles.tiempo}`}>{formatoTiempo(tiempoLocal)}</h1>
+                    <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`} onClick={iniciar}>Iniciar/Continuar.</button>
+                    <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`} onClick={pausa}>Pausar.</button>
+                    <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`} onClick={reiniciar}>Reiniciar.</button>
+                    <div className={`${styles[`${pokePrincipal.tipos[0].type.name}`]} ${styles.cont2}`}>
+                        <p className={styles.nivel}>Nivel: {pokePrincipal.nivel}</p>
+                        <p className={styles.pokeball}>Tienes: {pokeball} Pokeballs.</p>
+                        <h1 className={styles.tiempoUsado}>Tiempo que has usado a <p>{pokePrincipal.name} :<h1 className={`${styles.tiempo2}`}>{formatoTiempo(pokePrincipal.tiempo)}</h1></p> </h1>
+                        <Link to="/Colección">
+                            <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`}>Cambiar Pokémon.</button>
+                        </Link>
                     </div>
 
                 </section>

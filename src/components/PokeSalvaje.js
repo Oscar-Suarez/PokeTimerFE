@@ -12,8 +12,9 @@ function PokeSalvaje() {
 
   const [pokemonData, setPokemonData] = useState([]);
   const [pokeElegido, setPokeElegido] = useState(null);
+  const id = localStorage.getItem("id");
 
-  const { setPokeSalvaje, pokeball, setPokeball, pokePrincipal, setEvolucionando, setEstaEvolucionado, estaEvolucionado, unaEvo, setUnaEvo } = useContext(MyContext);
+  const { setPokeSalvaje, pokeball, setPokeball,pokeInfoActual, setPokeInfoActual, BE_URL} = useContext(MyContext);
 
   //Función para consumir la API
   useEffect(() => {
@@ -37,12 +38,13 @@ function PokeSalvaje() {
           return {
             ...response.data,
             name: response.data.name.toUpperCase(),
+            pixSprite: response.data.sprites.front_default,
+            fullSprite: response.data.sprites.other["official-artwork"].front_default,
+            tipos: response.data.types,
             nivel: 0,
             tiempo: 0,
             evoluciones: cadenaEvo,
-            segundaEvo: cadenaEvoDos,
-            ultimaEvo : estaEvolucionado,
-            soloUnaEvo : unaEvo,
+            segundaEvo: cadenaEvoDos
           };
         }));
 
@@ -52,11 +54,37 @@ function PokeSalvaje() {
       }
     }
     fetchData();
-  }, [estaEvolucionado, pokePrincipal, pokePrincipal.evoluciones, setEstaEvolucionado, setEvolucionando, setUnaEvo, unaEvo]);
+  }, [setPokemonData]);
 
 
 
-
+   //Función para guardar pokémon en la base de datos.
+   useEffect(() => {
+    const guardarPokemonEnBD = async () => {
+      try {
+        await axios.post(BE_URL, {
+          name: pokeInfoActual.name,
+          pixSprite: pokeInfoActual.pixSprite,
+          fullSprite: pokeInfoActual.fullSprite,
+          tipos: pokeInfoActual.tipos,
+          nivel: pokeInfoActual.nivel,
+          tiempo: pokeInfoActual.tiempo,
+          evoluciones: pokeInfoActual.evoluciones,
+          segundaEvo: pokeInfoActual.segundaEvo,
+          dex: pokeInfoActual.dex,
+          idUsuario: id
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    if (pokeInfoActual) {
+      guardarPokemonEnBD();
+      setPokeInfoActual();
+    }
+  }, [pokeInfoActual,id,setPokeInfoActual, BE_URL]);
+  
 
   //Función para elegir un poke aleatoriamente y mostrarlo
   const random = () => {
@@ -65,6 +93,17 @@ function PokeSalvaje() {
     if (pokemonSeleccionado) {
       setPokeElegido(pokemonSeleccionado);
       setPokeSalvaje((pokeSalvaje) => [...pokeSalvaje, pokemonSeleccionado]);// Guarda los datos de los pokemon salvajes en el useContext
+      setPokeInfoActual({
+        name: pokemonSeleccionado.name.toUpperCase(),
+        pixSprite: pokemonSeleccionado.sprites.front_default,
+        fullSprite: pokemonSeleccionado.sprites.other["official-artwork"].front_default,
+        tipos: pokemonSeleccionado.types,
+        nivel: 0,
+        tiempo: 0,
+        evoluciones: pokemonSeleccionado.evoluciones,
+        segundaEvo: pokemonSeleccionado.segundaEvo,
+        dex: pokemonSeleccionado.id
+      });
     }
   };
 
