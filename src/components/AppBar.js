@@ -7,8 +7,9 @@ import { FaTimes } from "react-icons/fa";
 import { IconContext } from "react-icons";
 import bl1 from "../assets/img/bl1.png";
 
+
 function AppBar() {
-  const { sesionIniciada, setSesionIniciada } = useContext(MyContext);
+  const { sesionIniciada, setSesionIniciada,pokePrincipal } = useContext(MyContext);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
@@ -43,29 +44,47 @@ function AppBar() {
 
         <ul className={styles.navLinks}>
           {sesionIniciada ? (
-            <>
 
-              <li>
-                <Link to="/Perfil" className={styles.a} onClick={handleCloseMenu}>
-                  <h3>Perfil/Timer</h3>
+            pokePrincipal._id ? (
+              <>
+                <li>
+                  <Link to="/Perfil" className={styles.a} onClick={handleCloseMenu}>
+                    <h3>Perfil/Timer</h3>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/PokeSalvaje" className={styles.a} onClick={handleCloseMenu}>
+                    <h3>Pokémon salvaje</h3>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Colección" className={styles.a} onClick={handleCloseMenu}>
+                    <h3>Colección/Pokedex</h3>
+                  </Link>
+                </li>
+                <li><Link to={"/PokeTimerFE"} className={styles.a} onClick={handleCloseMenu}>
+                  <h5 onClick={cerrarSesion}>Cerrar Sesión</h5>
                 </Link>
-              </li>
-              <li>
-                <Link to="/PokeSalvaje" className={styles.a} onClick={handleCloseMenu}>
-                  <h3>Pokémon salvaje</h3>
+                </li>
+              </>) : 
+              
+              (
+              <>
+                <li>
+                  <Link to="/PokeSalvaje" className={styles.a} onClick={handleCloseMenu}>
+                    <h3>Pokémon salvaje</h3>
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/Colección" className={styles.a} onClick={handleCloseMenu}>
+                    <h3>Colección/Pokedex</h3>
+                  </Link>
+                </li>
+                <li><Link to={"/PokeTimerFE"} className={styles.a} onClick={handleCloseMenu}>
+                  <h5 onClick={cerrarSesion}>Cerrar Sesión</h5>
                 </Link>
-              </li>
-              <li>
-                <Link to="/Colección" className={styles.a} onClick={handleCloseMenu}>
-                  <h3>Colección/Pokedex</h3>
-                </Link>
-              </li>
-              <li><Link to={"/PokeTimerFE"} className={styles.a} onClick={handleCloseMenu}>
-                <h5 onClick={cerrarSesion}>Cerrar Sesión</h5>
-              </Link>
-              </li>
-
-            </>
+                </li>
+              </>)
           ) : (
             <>
               <li>

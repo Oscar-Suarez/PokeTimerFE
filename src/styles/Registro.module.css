@@ -30,7 +30,6 @@
     display: flex;
     margin: 50px;
     font-size: 18px;
-
 }
 
 .input {
@@ -86,6 +85,14 @@
 }
 
 
+.contForm b{
+    cursor: pointer;
+}
+
+.mensaje{
+    color: #000000;
+    margin-top: 35px;
+}
 
 /*RESPONSIVIDAD CELULARES*/
 
@@ -112,7 +119,10 @@
         margin-bottom: 20px;
         color: #ffffff;
     }
-
+    .contForm p{
+        margin-top: -20px;
+        color: #000000;
+    }
     .form {
         flex-direction: column;
         margin: 20px;
@@ -129,13 +139,7 @@
     .contBtn {
         margin-top: 5px;
     }
-    .contForm p{
-        margin-top: -20px;
-        color: #000000;
-    }
-    .contForm b{
-        cursor: pointer;
-    }
+
     .btn {
         width: 100px;
         height: 40px;

@@ -17,7 +17,7 @@ function Cronometro() {
     const [activo, setActivo] = useState(false);
     const [detenido, setDetenido] = useState(false);
     const [tiempoTotal, setTiempoTotal] = useState(0);
-    const [seleccionado, setSeleccionado] = useState(false);
+    // const [seleccionado, setSeleccionado] = useState(false);
     const [tiempoLocal, setTiempoLocal] = useState(0);
     const [evolucionEjecutada, setEvolucionEjecutada] = useState(false);
     const { pokeball, setPokeball, pokePrincipal, nivel, setNivel, tiempo, setTiempo, setPokeSalvaje, pokeSalvaje, setEvolucionando, medallas, setMedallas, BE_URL } = useContext(MyContext);
@@ -122,6 +122,7 @@ function Cronometro() {
                                 tiempo: 0,
                                 evoluciones: pokePrincipal.segundaEvo,
                                 segundaEvo: "",
+                                dex: response.data.id
                             };
                         })
                         .catch(error => {
@@ -145,7 +146,7 @@ function Cronometro() {
                                             tiempo: nuevoPokemon.tiempo,
                                             evoluciones: nuevoPokemon.evoluciones,
                                             segundaEvo: nuevoPokemon.segundaEvo,
-                                            dex: nuevoPokemon.id,
+                                            dex: nuevoPokemon.dex,
                                             idUsuario: id
                                         });
                                     } catch (error) {
@@ -187,14 +188,14 @@ function Cronometro() {
     };
     useEffect(() => {
         if (pokePrincipal.dex > 0) {
-            setSeleccionado(true)
+            // setSeleccionado(true)
             setTiempo(() => pokePrincipal.tiempo);
             setNivel(() => pokePrincipal.nivel);
         };
     }, [pokePrincipal, setTiempo, setNivel]);
 
     //Bucle necesario para cambiar de pantalla una vez se llega al nivel 100
-    if (nivel === 100) {
+    if (pokePrincipal.nivel === 100) {
         return (
             <div className={`${styles[`${pokePrincipal.tipos[0].type.name}`]} ${styles.contlvl100}`} >
                 <section >
@@ -212,9 +213,10 @@ function Cronometro() {
     }
 
 
+
     return (
         <div className={styles.cont}>
-            {seleccionado ? (
+            {pokePrincipal._id ? (
                 <section className={styles.contTiempo}>
                     <h1 className={`${styles[`${pokePrincipal.tipos[0].type.name}`]} ${styles.tiempo}`}>{formatoTiempo(tiempoLocal)}</h1>
                     <button className={`${color[`${pokePrincipal.tipos[0].type.name}`]} ${styles.btn}`} onClick={iniciar}>Iniciar/Continuar.</button>

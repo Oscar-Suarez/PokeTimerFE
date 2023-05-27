@@ -90,7 +90,7 @@ function InicioSesion() {
                             </div>
                         </div>
                         <div className={styles.contBtn} >
-                        <button type="submit" className={styles.btn}>{loading ? "Cargando..." : "Iniciar Sesión"}</button>
+                        <button type="submit"  className={styles.btn}>{loading ? "Cargando..." : "Iniciar Sesión"}</button>
                         </div>
                         <div className={styles.paraRegistro}><p> ¿Aun no tienes cuenta?{" "}<b onClick={() => navigate("/Registro")}>¡Registrate!</b></p>
                         </div>

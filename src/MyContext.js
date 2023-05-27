@@ -15,6 +15,7 @@ function MyContextProvider({ children }) {
   const [sesionIniciada, setSesionIniciada] = useState(false);
   const [pokeInfoActual, setPokeInfoActual] = useState([]);
   const BE_URL = 'http://localhost:3030/infoPokemon';
+  const [inicial, setInicial] = useState(false);
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -48,7 +49,9 @@ function MyContextProvider({ children }) {
     setSesionIniciada,
     pokeInfoActual,
     setPokeInfoActual,
-    BE_URL
+    BE_URL,
+    inicial,
+    setInicial
   };
 
   return (

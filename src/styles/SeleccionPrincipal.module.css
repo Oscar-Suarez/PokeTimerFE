@@ -32,7 +32,7 @@
 }
 
 .btn{
-    background-color: transparent;
+       background-color: transparent;
     width: 200px;
     height: 100px;
     border-radius: 80px;
@@ -41,6 +41,41 @@
     margin-top: 370px;
 }
 
+
+.aColeccion{
+  margin-top: 15%;
+  width: 650px;
+  height: 500px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  background-image: url('../assets/img/dex.png');
+  background-size: cover;
+}
+.h2Coleccion{
+  position: relative;
+  left: 7%;
+  bottom: 4%;
+  margin-right: 60%;
+  padding: 66px;
+  background-color: white;
+  z-index: -1;
+}
+
+@media (max-width: 630px) {
+
+  .aColeccion{
+    width: 350px;
+    height: 250px;
+    margin-top: 45%;
+  }
+  .h2Coleccion{
+    font-size: 15px;
+    left: 5%;
+    bottom: 2%;
+    padding: 33px;
+  }
+}
 .btn:hover {
     background: linear-gradient(15deg, #1F1C18 20%, #ffffff 45%, #f00000 80%);
     background-size: 200%;

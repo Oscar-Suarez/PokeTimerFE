@@ -140,13 +140,19 @@ background: linear-gradient(400deg, #11998e, #6be585);
   
 
   .pokeCont{
+    margin-top: -20px;
     font-size: 20px;
+    margin-bottom: -80px;
   }
 
   .linkTimer{
+    position: fixed;
       color: rgba(0, 0, 0, 0.814);
       text-decoration: none;
-  }
+      font-weight: bold;
+      font-size: 60px;
+    margin-left: -220px;
+    }
 
   /*RESPONSIVIDAD CELULAR*/
 
@@ -159,8 +165,12 @@ background: linear-gradient(400deg, #11998e, #6be585);
   }
   @media (max-width: 700px) {
 
+    .linkTimer{
+      margin-top: 25px;
+        font-size: 35px;
+        margin-left: -140px;
+      }
     .iniciales {
-
       margin-top: 100px;
       padding: 10px;
       width: 210px;

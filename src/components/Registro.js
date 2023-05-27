@@ -107,8 +107,9 @@ useEffect(() => {
                         <b onClick={() => navigate("/InicioSesion")}>Inicia Sesión!</b>
                     </p>
                 </form>
-                </div>
                 {mensaje && <div className={styles.mensaje}>{mensaje}</div>}
+                </div>
+
                 <img src={Arca} alt="Arca" className={styles.img} />
             </div>
             

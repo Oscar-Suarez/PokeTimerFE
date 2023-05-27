@@ -44,7 +44,8 @@ function PokeSalvaje() {
             nivel: 0,
             tiempo: 0,
             evoluciones: cadenaEvo,
-            segundaEvo: cadenaEvoDos
+            segundaEvo: cadenaEvoDos,
+            dex: response.data.id
           };
         }));
 

@@ -3,15 +3,34 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { MyContext } from "../MyContext";
 import styles from '../styles/Iniciales.module.css'
+import PokePrincipal from "./PokePrincipal";
 
 
 
 function Iniciales() {
 
-
     const [pokemonData, setPokemonData] = useState([]);
-    const { pokeSalvaje, setPokeSalvaje, setPokePrincipal, pokeInfoActual, BE_URL } = useContext(MyContext);
+    const { pokeSalvaje, setPokeSalvaje, setPokePrincipal, BE_URL, inicial, setInicial} = useContext(MyContext);
     const id = localStorage.getItem("id");
+
+
+
+    useEffect(() => {
+        const traerPokes = async () => {
+          try {
+            const response = await axios.get(
+              `http://localhost:3030/getPokemon?idUsuario=${id}`
+            );
+              if(response.data.length > 0){
+                setInicial(true);
+              };
+    
+          } catch (error) {
+            console.error(error);
+          }
+        };
+        traerPokes();
+      }, [id, setInicial]);
     //Función para consumir la API
     useEffect(() => {
         async function fetchData() {
@@ -36,7 +55,8 @@ function Iniciales() {
                         nivel: 0,
                         tiempo: 0,
                         evoluciones: cadenaEvo,
-                        segundaEvo: cadenaEvoDos
+                        segundaEvo: cadenaEvoDos,
+                        dex: response.data.id
                     };
                 }));
 
@@ -49,12 +69,13 @@ function Iniciales() {
         fetchData();
     }, []);
 
-
+    
 
     //Función para saber qué poke se eligió y agregarlo al array
     const elegirPoke = (pokemon) => {
         setPokeSalvaje(prevPokes => [...prevPokes, pokemon]);
-        console.log(`${pokemon.name} - Dex nacional: #${pokemon.id}`);
+
+        console.log(`${pokemon.name} - Dex nacional: #${pokemon.id}`, pokemon);
         setPokePrincipal(pokemon);
         const guardarPokemonEnBD = async () => {
             try {
@@ -67,7 +88,7 @@ function Iniciales() {
                     tiempo: pokemon.tiempo,
                     evoluciones: pokemon.evoluciones,
                     segundaEvo: pokemon.segundaEvo,
-                    dex: pokemon.dex,
+                    dex: pokemon.id,
                     idUsuario: id
                 });
             } catch (error) {
@@ -75,8 +96,8 @@ function Iniciales() {
             }
         };
         guardarPokemonEnBD();
-        console.log(pokeInfoActual);
     };
+    
 
 
     //Para modificar el Doom al momento de elegir el pokemon
@@ -88,8 +109,8 @@ function Iniciales() {
                         <div className={styles.pokeCont}>
                             <h2 className={styles.texto}>¡Elegiste a {pokemon.name} como tu inicial!</h2>
                             <img src={pokemon.sprites.other["official-artwork"].front_default} alt={pokemon.name} className={styles.imgElegido} />
-                            <Link to="/Perfil" className={styles.linkTimer}><h1>Ir al Timer</h1></Link>
                         </div>
+                        <div> <Link to="/Colección" className={styles.linkTimer}><p>Ir a Colección</p></Link></div>
                     </div>
                 ))}
             </div>
@@ -98,7 +119,8 @@ function Iniciales() {
 
 
     return (
-        <div className={styles.bkgd}>
+        inicial === false ?
+        (<div className={styles.bkgd}>
             <div className={styles.iniciales}>
                 <div className={styles.scrollCont}>
                     {pokemonData.map((pokemon, index) => (
@@ -118,6 +140,10 @@ function Iniciales() {
                 </div>
             </div>
         </div>
+    ) :
+    (<div>
+        <PokePrincipal></PokePrincipal>
+    </div>) 
     );
 
 }
